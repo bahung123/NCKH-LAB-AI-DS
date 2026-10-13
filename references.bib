@@ -1,9 +1,158 @@
-% references.bib — tài liệu tham khảo của báo cáo sáng kiến
-% Hiện chưa có mục nào. Thêm các mục BibTeX vào đây, ví dụ:
-%
-% @article{key2026,
-%   author  = {Nguyễn Văn A},
-%   title   = {Tên bài viết},
-%   journal = {Tạp chí},
-%   year    = {2026},
-% }
+% references.bib — tài liệu tham khảo của báo cáo
+% Kiểu trích dẫn: unsrt (đánh số theo thứ tự xuất hiện), xem main.tex.
+
+% ---------- Mô hình và giải thích mô hình ----------
+@inproceedings{chen2016xgboost,
+  author    = {Chen, Tianqi and Guestrin, Carlos},
+  title     = {{XGBoost}: A Scalable Tree Boosting System},
+  booktitle = {Proceedings of the 22nd ACM SIGKDD International Conference on Knowledge Discovery and Data Mining},
+  pages     = {785--794},
+  year      = {2016},
+  publisher = {ACM},
+  doi       = {10.1145/2939672.2939785},
+}
+
+@inproceedings{lundberg2017shap,
+  author    = {Lundberg, Scott M. and Lee, Su-In},
+  title     = {A Unified Approach to Interpreting Model Predictions},
+  booktitle = {Advances in Neural Information Processing Systems 30 (NeurIPS 2017)},
+  pages     = {4765--4774},
+  year      = {2017},
+}
+
+@article{lundberg2020treeshap,
+  author  = {Lundberg, Scott M. and Erion, Gabriel and Chen, Hugh and DeGrave, Alex and Prutkin, Jordan M. and Nair, Bala and Katz, Ronit and Himmelfarb, Jonathan and Bansal, Nisha and Lee, Su-In},
+  title   = {From Local Explanations to Global Understanding with Explainable {AI} for Trees},
+  journal = {Nature Machine Intelligence},
+  volume  = {2},
+  number  = {1},
+  pages   = {56--67},
+  year    = {2020},
+  doi     = {10.1038/s42256-019-0138-9},
+}
+
+@article{bergstra2012random,
+  author  = {Bergstra, James and Bengio, Yoshua},
+  title   = {Random Search for Hyper-Parameter Optimization},
+  journal = {Journal of Machine Learning Research},
+  volume  = {13},
+  pages   = {281--305},
+  year    = {2012},
+}
+
+% ---------- Đánh giá mô hình ----------
+@inproceedings{davis2006prroc,
+  author    = {Davis, Jesse and Goadrich, Mark},
+  title     = {The Relationship Between Precision-Recall and {ROC} Curves},
+  booktitle = {Proceedings of the 23rd International Conference on Machine Learning},
+  pages     = {233--240},
+  year      = {2006},
+  publisher = {ACM},
+}
+
+@article{saito2015prplot,
+  author  = {Saito, Takaya and Rehmsmeier, Marc},
+  title   = {The Precision-Recall Plot Is More Informative than the {ROC} Plot When Evaluating Binary Classifiers on Imbalanced Datasets},
+  journal = {PLoS ONE},
+  volume  = {10},
+  number  = {3},
+  pages   = {e0118432},
+  year    = {2015},
+  doi     = {10.1371/journal.pone.0118432},
+}
+
+@article{bergmeir2012cv,
+  author  = {Bergmeir, Christoph and Ben{\'\i}tez, Jos{\'e} M.},
+  title   = {On the Use of Cross-Validation for Time Series Predictor Evaluation},
+  journal = {Information Sciences},
+  volume  = {191},
+  pages   = {192--213},
+  year    = {2012},
+  doi     = {10.1016/j.ins.2011.12.028},
+}
+
+% ---------- Giám sát độ lệch dữ liệu ----------
+@article{massey1951ks,
+  author  = {Massey, Frank J.},
+  title   = {The {Kolmogorov--Smirnov} Test for Goodness of Fit},
+  journal = {Journal of the American Statistical Association},
+  volume  = {46},
+  number  = {253},
+  pages   = {68--78},
+  year    = {1951},
+}
+
+@book{siddiqi2006scorecards,
+  author    = {Siddiqi, Naeem},
+  title     = {Credit Risk Scorecards: Developing and Implementing Intelligent Credit Scoring},
+  publisher = {John Wiley \& Sons},
+  year      = {2006},
+}
+
+@article{gama2014drift,
+  author  = {Gama, Jo{\~a}o and {\v Z}liobait{\.e}, Indr{\.e} and Bifet, Albert and Pechenizkiy, Mykola and Bouchachia, Abdelhamid},
+  title   = {A Survey on Concept Drift Adaptation},
+  journal = {ACM Computing Surveys},
+  volume  = {46},
+  number  = {4},
+  pages   = {44:1--44:37},
+  year    = {2014},
+  doi     = {10.1145/2523813},
+}
+
+% ---------- Dự báo rời bỏ và giữ chân khách hàng ----------
+@article{reichheld1990zero,
+  author  = {Reichheld, Frederick F. and Sasser, W. Earl},
+  title   = {Zero Defections: Quality Comes to Services},
+  journal = {Harvard Business Review},
+  volume  = {68},
+  number  = {5},
+  pages   = {105--111},
+  year    = {1990},
+}
+
+@article{neslin2006defection,
+  author  = {Neslin, Scott A. and Gupta, Sunil and Kamakura, Wagner and Lu, Junxiang and Mason, Charlotte H.},
+  title   = {Defection Detection: Measuring and Understanding the Predictive Accuracy of Customer Churn Models},
+  journal = {Journal of Marketing Research},
+  volume  = {43},
+  number  = {2},
+  pages   = {204--211},
+  year    = {2006},
+}
+
+% ---------- Tài liệu công cụ ----------
+@misc{airflowdocs,
+  author       = {{Apache Software Foundation}},
+  title        = {Apache {Airflow} Documentation},
+  howpublished = {\url{https://airflow.apache.org/docs/}},
+  note         = {Truy cập tháng 10/2026},
+}
+
+@misc{postgresdocs,
+  author       = {{PostgreSQL Global Development Group}},
+  title        = {{PostgreSQL} Documentation},
+  howpublished = {\url{https://www.postgresql.org/docs/}},
+  note         = {Truy cập tháng 10/2026},
+}
+
+@misc{xgboostdocs,
+  author       = {{XGBoost Developers}},
+  title        = {{XGBoost} Documentation},
+  howpublished = {\url{https://xgboost.readthedocs.io/}},
+  note         = {Truy cập tháng 10/2026},
+}
+
+@misc{shapdocs,
+  author       = {{SHAP Developers}},
+  title        = {{SHAP} Documentation},
+  howpublished = {\url{https://shap.readthedocs.io/}},
+  note         = {Truy cập tháng 10/2026},
+}
+
+@misc{dockerdocs,
+  author       = {{Docker, Inc.}},
+  title        = {Docker Documentation},
+  howpublished = {\url{https://docs.docker.com/}},
+  note         = {Truy cập tháng 10/2026},
+}

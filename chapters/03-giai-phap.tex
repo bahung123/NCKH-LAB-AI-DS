@@ -152,7 +152,7 @@ tỷ lệ mục tiêu đặt theo mức mặc định 15\%; vùng ``chưa chắc
 
 \begin{itemize}
   \item Mô hình cơ sở: là mô hình đơn giản và nhanh dùng để thử nhiều độ dài lịch sử khác nhau và chọn ra vùng cấu hình tốt. Mô hình này dễ giải thích, ổn định, giúp phát hiện sớm sai sót trong nhãn hoặc cách chia dữ liệu và không là mô hình dùng trong vận hành.
-  \item Mô hình chính: thuộc nhóm cây quyết định tăng cường, XGBoost là mô hình phổ biến cho dữ liệu dạng bảng; biết xử lý quan hệ phức tạp giữa giảm đơn, doanh thu, khiếu nại, giao muộn và thời gian gắn bó; chịu được dữ liệu thiếu; có cơ chế chống học thuộc lòng và cho phép giải thích lý do.
+  \item Mô hình chính: thuộc nhóm cây quyết định tăng cường, XGBoost~\cite{chen2016xgboost,xgboostdocs} là mô hình phổ biến cho dữ liệu dạng bảng; biết xử lý quan hệ phức tạp giữa giảm đơn, doanh thu, khiếu nại, giao muộn và thời gian gắn bó; chịu được dữ liệu thiếu; có cơ chế chống học thuộc lòng và cho phép giải thích lý do.
 \end{itemize}
 
 \begin{hieunhanh}[Mô hình dự báo hoạt động thế nào?]
@@ -167,14 +167,14 @@ Mô hình chính có nhiều tham số cần chỉnh. Hệ thống làm theo tr�
 \begin{enumerate}
   \item Thử nhiều độ dài lịch sử bằng mô hình cơ sở để chọn ra các ứng viên tốt nhất.
   \item Huấn luyện mô hình chính cơ bản để xếp hạng ứng viên.
-  \item Với ứng viên hàng đầu, tìm kiếm ngẫu nhiên trên vùng rộng để khám phá.
+  \item Với ứng viên hàng đầu, tìm kiếm ngẫu nhiên~\cite{bergstra2012random} trên vùng rộng để khám phá.
   \item Thu hẹp vùng tốt, rồi dùng phương pháp tối ưu hóa thông minh tinh chỉnh, tự dừng các lần thử kém.
   \item Giữ lại tháng gần nhất làm bài kiểm tra cuối cùng, không dùng trong tinh chỉnh.
 \end{enumerate}
 
 \subsection{Kiểm tra theo thời gian, không xáo trộn ngẫu nhiên}
 
-Dữ liệu được chia theo thứ tự thời gian: học từ các tháng cũ, kiểm tra trên các tháng gần hơn, lặp lại nhiều vòng. Giữa phần học và phần kiểm tra có một ``khoảng đệm'' bằng đúng chân trời dự báo để tránh việc mô hình vô tình biết trước tương lai. Ngưỡng cảnh báo trên bài thi cuối kỳ lấy
+Dữ liệu được chia theo thứ tự thời gian: học từ các tháng cũ, kiểm tra trên các tháng gần hơn, lặp lại nhiều vòng. Giữa phần học và phần kiểm tra có một ``khoảng đệm'' bằng đúng chân trời dự báo để tránh việc mô hình vô tình biết trước tương lai~\cite{bergmeir2012cv}. Ngưỡng cảnh báo trên bài thi cuối kỳ lấy
 từ các vòng tinh chỉnh, không tối ưu trực tiếp trên bài thi cuối kỳ.
 
 \begin{luuy}[Vì sao chia theo thời gian?]
@@ -184,7 +184,7 @@ Chia theo thời gian phản ánh đúng cách hệ thống sẽ được dùng.
 
 \section{Cách đánh giá chất lượng mô hình}
 
-Mô hình được đánh giá chính bằng điểm F1: đại lượng cân bằng giữa hai điều mà nghiệp vụ quan tâm. Khách hàng rời bỏ chiếm tỷ lệ nhỏ trong tổng thể, nếu chỉ nhìn tỷ lệ đoán đúng chung, một mô hình ``đoán tất cả là không rời bỏ'' vẫn có vẻ chính xác cao nhưng hoàn toàn vô dụng.
+Mô hình được đánh giá chính bằng điểm F1 cùng các thước đo xếp hạng PR-AUC và ROC-AUC~\cite{davis2006prroc,saito2015prplot}, trong đó F1 là đại lượng cân bằng giữa hai điều mà nghiệp vụ quan tâm. Khách hàng rời bỏ chiếm tỷ lệ nhỏ trong tổng thể, nếu chỉ nhìn tỷ lệ đoán đúng chung, một mô hình ``đoán tất cả là không rời bỏ'' vẫn có vẻ chính xác cao nhưng hoàn toàn vô dụng.
 
 {\tablefont
 \begin{longtable}{@{}L{3.3cm}>{\raggedright\arraybackslash}p{7.91cm} L{4.0cm}@{}}
@@ -262,7 +262,7 @@ Cột ``tỷ lệ rời bỏ'' trong bảng kết quả hiện là tên gọi c�
 
 \section{Giải thích lý do rủi ro}\label{sec:lydo}
 
-Điểm rủi ro cao nhưng không có lý do thì đội chăm sóc khó hành động. Hệ thống sử dụng kỹ thuật phân tích mức đóng góp SHAP để xác định chỉ số nào đẩy điểm rủi ro của từng khách lên cao, rồi quy đổi thành tám nhóm lý do nghiệp vụ.
+Điểm rủi ro cao nhưng không có lý do thì đội chăm sóc khó hành động. Hệ thống sử dụng kỹ thuật phân tích mức đóng góp SHAP~\cite{lundberg2017shap,lundberg2020treeshap,shapdocs} để xác định chỉ số nào đẩy điểm rủi ro của từng khách lên cao, rồi quy đổi thành tám nhóm lý do nghiệp vụ.
 Nếu kỹ thuật này không chạy được, hệ thống tự chuyển sang bộ quy tắc dự phòng để vẫn có lý do.
 
 {\tablefont
