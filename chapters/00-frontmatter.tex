@@ -34,26 +34,24 @@ phục vụ công tác cải thiện chất lượng dịch vụ và giữ chân
 % ===================== LỜI NÓI ĐẦU =====================
 \chapter*{Lời nói đầu}
 \addcontentsline{toc}{chapter}{Lời nói đầu}
-Trong hoạt động bưu chính -- chuyển phát, khách hàng không nói với doanh nghiệp mọi điều
+Trong hoạt động bưu chính - chuyển phát, khách hàng không nói với doanh nghiệp mọi điều
 họ nghĩ, nhưng họ để lại dấu vết trong dữ liệu vận hành: gửi bao nhiêu đơn, vào những ngày
 nào, đơn giao có đúng hẹn không, có khiếu nại không, doanh thu mỗi tháng tăng hay giảm.
 Khoa học dữ liệu cho phép khai thác các dấu vết đó một cách có hệ thống để hiểu khách hàng
 đang làm gì, vì sao, và nhiều khả năng sẽ làm gì tiếp theo. Báo cáo khoa học này trình bày
 kết quả nghiên cứu và triển khai của đề tài ``Triển khai các mô hình dự báo, dự đoán về
 hành vi của khách hàng phục vụ công tác cải thiện chất lượng dịch vụ và giữ chân người
-dùng'' tại Tổng công ty Bưu điện Việt Nam, trong đó đi sâu vào bài toán đầu tiên:
-dự báo khách hàng có nguy cơ rời bỏ dịch vụ.
+dùng'' tại Tổng công ty Bưu điện Việt Nam, tập trung vào bài toán dự báo khách hàng có nguy cơ rời bỏ dịch vụ.
 
 Báo cáo được tổ chức theo trình tự từ vấn đề đến giải pháp và kiểm nghiệm: giới thiệu đề
-tài và bối cảnh; mục tiêu và phạm vi; nội dung giải pháp (chuỗi công việc sáu bước, chỉ số
-hành vi, nhãn học, mô hình hai lớp, kiểm tra theo thời gian và lý do rủi ro); cách thức
+tài và bối cảnh; mục tiêu và phạm vi; nội dung giải pháp; cách thức
 triển khai và vận hành tự động; nguồn lực và tiến độ; kết quả áp dụng; hiệu quả và bộ chỉ
 tiêu đo lường; đánh giá và quản lý rủi ro; cùng khả năng áp dụng, mở rộng cho các bài
 toán hành vi khác.
 
-Toàn bộ kết quả trình bày trong báo cáo được làm từ dữ liệu vận hành có sẵn của Tổng công
-ty; các số liệu cần xác nhận được để trống cho nhóm tác giả điền trước khi trình, không
-ước tính thay số thực.
+Toàn bộ nội dung trình bày trong báo cáo được xây dựng từ dữ liệu vận hành có sẵn của Tổng
+công ty. Đây là báo cáo tiến độ: hệ thống chưa vận hành chính thức nên các số liệu đánh giá
+mô hình và hiệu quả kinh doanh chưa được đưa vào, sẽ bổ sung ở báo cáo sau.
 
 Xin gửi lời cảm ơn tới Ban lãnh đạo và các đơn vị nghiệp vụ, kỹ thuật dữ liệu đã tạo điều
 kiện, chia sẻ bối cảnh nghiệp vụ và dữ liệu để hoàn thành báo cáo này.
@@ -66,45 +64,44 @@ kiện, chia sẻ bối cảnh nghiệp vụ và dữ liệu để hoàn thành 
 % ===================== TÓM TẮT ĐIỀU HÀNH =====================
 \chapter*{Tóm tắt điều hành}
 \addcontentsline{toc}{chapter}{Tóm tắt điều hành}
-Tổng công ty Bưu điện Việt Nam cung cấp dịch vụ bưu chính, chuyển phát cho một số lượng
-lớn khách hàng, trong đó nhóm khách hàng doanh nghiệp, cửa hàng và đơn vị thương mại điện
-tử gửi hàng thường xuyên theo hợp đồng vừa mang lại sản lượng, doanh thu ổn định, vừa có
-nhiều lựa chọn thay thế trên thị trường. Với nhóm khách hàng này, việc giữ được một khách
-hàng đang sử dụng thường có ý nghĩa kinh doanh lớn hơn tìm thêm một khách hàng mới tương
-đương, và điều kiện để giữ chân là phải nhận biết sớm khi khách hàng bắt đầu thay
-đổi hành vi. Báo cáo này nghiên cứu việc dùng dữ liệu vận hành sẵn có để dự báo trước
-hành vi của khách hàng, tập trung bài toán đầu tiên: dự báo khách hàng có nguy cơ rời bỏ
-dịch vụ, được hiểu rộng là ngừng hẳn, giảm mạnh số đơn, giảm mạnh doanh thu hoặc có xu
-hướng đi xuống rõ rệt.
+Tổng công ty Bưu điện Việt Nam phục vụ một lượng lớn khách hàng bưu chính, chuyển phát. Quan
+trọng nhất là nhóm khách hàng doanh nghiệp, cửa hàng và đơn vị thương mại điện tử gửi hàng
+thường xuyên theo hợp đồng: họ mang lại sản lượng và doanh thu ổn định, nhưng cũng có nhiều
+nhà cung cấp khác để lựa chọn. Với nhóm này, giữ được một khách đang dùng dịch vụ thường có
+giá trị hơn việc tìm một khách mới tương đương, và muốn giữ được thì phải phát hiện sớm dấu
+hiệu khách bắt đầu thay đổi thói quen. Báo cáo này nghiên cứu cách dùng dữ liệu vận hành sẵn
+có để dự báo hành vi khách hàng, tập trung vào bài toán cảnh báo sớm khách có nguy
+cơ rời bỏ. Rời bỏ được hiểu rộng, gồm cả ngừng hẳn, giảm mạnh số đơn, giảm mạnh doanh thu
+hoặc đi xuống rõ rệt.
 
-Về phương pháp, báo cáo thiết kế một chuỗi công việc sáu bước: phân nhóm khách hàng; lọc
-nhóm đủ điều kiện dự báo; xây dựng hệ chỉ số hành vi (so với mức nền dài hạn của chính
-khách hàng đó); gán nhãn học, trong đó nhãn thực tế từ đội chăm sóc -- khoảng 1.501 dòng
-trạng thái rời bỏ đã khảo sát -- được ưu tiên và bổ sung bằng quy tắc nghiệp vụ cho phần
-chưa bao phủ; huấn luyện mô hình hai lớp (mô hình cơ sở làm tham chiếu và mô hình chính
-thuộc nhóm cây quyết định tăng cường kiểu XGBoost) với hai giai đoạn tinh chỉnh và kiểm
-tra theo thời gian (học từ tháng cũ, kiểm tra trên tháng mới hơn, giữ tháng gần nhất làm
-bài thi cuối kỳ); và đánh giá bằng các thước đo quay lại với nghiệp vụ: F1, độ chính xác
-cảnh báo, độ bao phủ, PR-AUC và ROC-AUC. Mỗi dự báo đi kèm tối đa ba lý do rủi ro thuộc
-tám nhóm nghiệp vụ, được suy ra bằng kỹ thuật phân tích mức đóng góp SHAP.
+Giải pháp là một dây chuyền sáu bước đi từ dữ liệu thô đến danh sách khách cần chăm sóc. Hệ
+thống chia khách thành các nhóm và giữ lại những nhóm có đủ dữ liệu để dự báo, rồi tính các
+chỉ số hành vi bằng cách so sánh mỗi khách với mức quen thuộc của chính họ. Để máy học được
+thế nào là rời bỏ, các khách được gán nhãn bằng bốn quy tắc nghiệp vụ dựa trên đơn hàng
+thực tế, được xây dựng có tham khảo ý kiến của đội chăm sóc khách hàng. Mô hình gồm hai lớp, một mô hình cơ sở làm mốc so sánh và một mô hình chính
+thuộc họ cây quyết định tăng cường, được kiểm tra theo trình tự thời gian như khi
+dùng thật: học từ các tháng cũ, kiểm tra trên tháng mới hơn và giữ tháng gần nhất làm bài kiểm tra. Chất lượng được đo bằng các thước đo gắn với nghiệp vụ như F1, độ chính xác của
+cảnh báo và độ bao phủ, cùng PR-AUC và ROC-AUC. Mỗi dự báo đi kèm tối đa ba lý do rủi ro
+thuộc tám nhóm nghiệp vụ, rút ra bằng kỹ thuật phân tích SHAP, để nhân viên chăm sóc biết
+cần hỏi khách điều gì.
 
-Về vận hành, toàn bộ hệ thống được tổ chức thành sáu luồng công việc tự động nối tiếp
-trên nền điều phối Apache Airflow: nạp -- kiểm tra dữ liệu hằng ngày, tạo chỉ số và gán
-nhãn, huấn luyện lại theo chu kỳ với rào chắn xét duyệt (chỉ thay mô hình khi tốt hơn và
-qua kiểm định), chấm điểm và xuất danh sách, giám sát độ lệch dữ liệu và điểm số bằng PSI
-và KS, cùng dọn dẹp định kỳ. Hệ thống chạy trên hạ tầng sẵn có của đơn vị, dùng PostgreSQL
-và đóng gói theo container với quy trình phát hành, hoàn tác phiên bản; danh sách ưu tiên
-giới hạn ở 5\% khách rủi ro cao nhất mỗi kỳ để đội chăm sóc xử lý được thực sự. Kết quả áp
-dụng cho thấy dây chuyền từ dữ liệu thô đến danh sách kèm lý do đã khép kín và đang chạy;
-các số liệu đo chất lượng mô hình và hiệu quả kinh doanh được ghi đủ trong Bảng số liệu mô
-hình đang vận hành của báo cáo trước khi trình. Báo cáo cũng đánh giá minh bạch các hạng
-mục chưa hoàn thành (khách mùa vụ, khách mới, quản lý vòng đời mô hình, thử nghiệm đối
-chứng), đặt trong quản trị rủi ro cụ thể, và đề xuất lộ trình nâng cấp cùng khả năng tái
-sử dụng nền đã xây cho các bài toán hành vi khác theo cùng khung chuỗi bảy bước.
+Toàn bộ hệ thống chạy tự động qua sáu luồng công việc nối tiếp trên apache airflow: nạp và
+kiểm tra dữ liệu hằng ngày, tạo chỉ số và gán nhãn, huấn luyện lại theo chu kỳ và chỉ thay mô
+hình khi mô hình mới tốt hơn và qua kiểm định, chấm điểm và xuất danh sách, giám sát độ lệch
+của dữ liệu và điểm số bằng PSI và KS, cùng dọn dẹp định kỳ. Hệ thống dùng hạ tầng sẵn có của
+đơn vị, lưu dữ liệu bằng PostgreSQL, đóng gói bằng container và có quy trình phát hành, hoàn
+tác phiên bản. Mỗi kỳ, danh sách ưu tiên chỉ gồm 5\% khách có rủi ro cao nhất, đủ ít để đội
+chăm sóc xử lý được thực sự.
+
+Dây chuyền từ dữ liệu thô đến danh sách kèm lý do đã được xây dựng hoàn chỉnh về mặt kỹ thuật
+nhưng chưa vận hành chính thức, nên các số liệu về chất lượng mô hình và hiệu quả kinh doanh
+sẽ được bổ sung ở báo cáo sau.
+Báo cáo cũng nêu rõ những hạng mục chưa hoàn thành cùng cách kiểm soát rủi ro tương ứng, và đề xuất lộ
+trình nâng cấp cũng như cách tái sử dụng nền tảng này cho các bài toán hành vi khác.
 
 \vspace{0.4cm}
 \noindent\textbf{Từ khóa:} dự báo hành vi khách hàng, rời bỏ dịch vụ, giữ chân khách
-hàng, học máy, XGBoost, chỉ số hành vi, kiểm tra theo thời gian, SHAP, Apache Airflow.
+hàng, học máy, chỉ số hành vi, kiểm tra theo thời gian, SHAP, apache airflow.
 
 % ===================== DANH MỤC TỪ VIẾT TẮT =====================
 \chapter*{Danh mục từ viết tắt}
@@ -120,19 +117,19 @@ hàng, học máy, XGBoost, chỉ số hành vi, kiểm tra theo thời gian, SH
 \endhead
 \bottomrule
 \endfoot
-Airflow & Apache Airflow -- phần mềm điều phối luồng công việc theo lịch \\
-API & Application Programming Interface -- giao diện lập trình ứng dụng \\
-AUC & Area Under the Curve -- diện tích dưới đường cong của thước đo xếp hạng \\
+Airflow & Apache Airflow - phần mềm điều phối luồng công việc theo lịch \\
+API & Application Programming Interface - giao diện lập trình ứng dụng \\
+AUC & Area Under the Curve - diện tích dưới đường cong của thước đo xếp hạng \\
 COD & Cash on Delivery -- thu hộ tiền khi giao hàng \\
-CSV & Comma-Separated Values -- tệp dữ liệu phân tách bằng dấu phẩy \\
-DAG & Directed Acyclic Graph -- đồ thị có hướng không chu trình, khai báo luồng công việc \\
-F1 & Điểm F1 -- cân bằng giữa độ chính xác cảnh báo và độ bao phủ \\
-KS & Kolmogorov--Smirnov -- phép đo độ lệch phân phối dữ liệu \\
+CSV & Comma-Separated Values - tệp dữ liệu phân tách bằng dấu phẩy \\
+DAG & Directed Acyclic Graph - đồ thị có hướng không chu trình, khai báo luồng công việc \\
+F1 & Điểm F1 - cân bằng giữa độ chính xác cảnh báo và độ bao phủ \\
+KS & Kolmogorov Smirnov - phép đo độ lệch phân phối dữ liệu \\
 My VNPost & Ứng dụng bưu gửi của Tổng công ty Bưu điện Việt Nam \\
-PR & Precision--Recall -- đường cong độ chính xác/bao phủ (PR-AUC) \\
-PSI & Population Stability Index -- chỉ số ổn định dân số, đo độ lệch dữ liệu \\
-ROC & Receiver Operating Characteristic -- đường cong đặc trưng hoạt động (ROC-AUC) \\
-SHAP & SHapley Additive exPlanations -- mức đóng góp của từng chỉ số vào kết quả dự báo \\
-SQL & Structured Query Language -- ngôn ngữ truy vấn cơ sở dữ liệu \\
-XGBoost & Extreme Gradient Boosting -- thuật toán cây quyết định tăng cường \\
+PR & Precision Recall - đường cong độ chính xác/bao phủ \\
+PSI & Population Stability Index - chỉ số ổn định dân số, đo độ lệch dữ liệu \\
+ROC & Receiver Operating Characteristic - đường cong đặc trưng hoạt động \\
+SHAP & SHapley Additive exPlanations - mức đóng góp của từng chỉ số vào kết quả dự báo \\
+SQL & Structured Query Language - ngôn ngữ truy vấn cơ sở dữ liệu \\
+XGBoost & Extreme Gradient Boosting - thuật toán cây quyết định tăng cường \\
 \end{longtable}

@@ -3,19 +3,18 @@
 \chapter{Kết quả áp dụng}\label{ch:ketqua}
 
 \begin{tomtat}[Phạm vi của chương]
-Chương này tổng hợp những gì \textbf{đã được xây dựng và đang có trong hệ thống}, căn cứ tài liệu bàn giao.
-Các số liệu đo kết quả mô hình và kết quả kinh doanh \textbf{chưa có trong tài liệu nguồn} nên được để trống cho nhóm tác giả điền, không ước tính.
+Chương này tổng hợp những gì đã được xây dựng trong hệ thống tính đến thời điểm báo cáo. Hệ thống chưa vận hành chính thức nên chương chưa có số liệu đo chất lượng mô hình và kết quả kinh doanh; các số liệu này sẽ được bổ sung ở báo cáo sau.
 \end{tomtat}
 
 \section{Kết quả về sản phẩm}
 
 \begin{enumerate}
-  \item \textbf{Dây chuyền khép kín từ dữ liệu thô đến danh sách khách hàng ưu tiên.} Sáu luồng công việc tự động nối tiếp nhau, từ nạp dữ liệu đến chấm điểm, không cần thao tác tay giữa các bước.
-  \item \textbf{Danh sách khách hàng rủi ro cao sẵn sàng theo chu kỳ.} Mỗi lần chạy, hệ thống ghi bảng rủi ro vào cơ sở dữ liệu và xuất tệp CSV để đội chăm sóc dùng ngay; danh sách giới hạn ở nhóm 5\% rủi ro cao nhất, đủ ngắn để xử lý.
-  \item \textbf{Mỗi khách hàng có lý do rủi ro.} Tối đa ba lý do, thuộc tám nhóm nghiệp vụ, kèm chỉ số hiện tại, mức nền và mức thay đổi.
-  \item \textbf{Cơ chế tự bảo vệ chất lượng.} Mô hình được huấn luyện lại định kỳ (chu kỳ thiết kế khi đủ dữ liệu), chỉ thay thế khi tốt hơn và qua rào chắn an toàn; khi có sự cố, mô hình cũ vẫn tiếp tục phục vụ.
-  \item \textbf{Giám sát và truy vết đầy đủ.} Nhật ký từng lần chạy, theo dõi độ lệch dữ liệu và điểm số, dọn dẹp tự động theo quý.
-  \item \textbf{Chạy trên hạ tầng sẵn có.} Toàn bộ hệ thống đóng gói theo container, dùng PostgreSQL của đơn vị và có quy trình đóng gói, phát hành, hoàn tác phiên bản.
+  \item Dây chuyền khép kín từ dữ liệu thô đến danh sách khách hàng ưu tiên. Sáu luồng công việc tự động nối tiếp nhau, từ nạp dữ liệu đến chấm điểm, không cần thao tác tay giữa các bước.
+  \item Danh sách khách hàng rủi ro cao theo chu kỳ. Mỗi lần chạy, hệ thống ghi bảng rủi ro vào cơ sở dữ liệu và xuất tệp CSV để đội chăm sóc dùng ngay; danh sách giới hạn ở nhóm 5\% rủi ro cao nhất, đủ ngắn để xử lý.
+  \item Mỗi khách hàng có lý do rủi ro. Tối đa ba lý do, thuộc tám nhóm nghiệp vụ, kèm chỉ số hiện tại, mức nền và mức thay đổi.
+  \item Cơ chế tự bảo vệ chất lượng. Mô hình được huấn luyện lại định kỳ (chu kỳ thiết kế khi đủ dữ liệu), chỉ thay thế khi tốt hơn và qua rào chắn an toàn; khi có sự cố, mô hình cũ vẫn tiếp tục phục vụ.
+  \item Giám sát và truy vết đầy đủ. Nhật ký từng lần chạy, theo dõi độ lệch dữ liệu và điểm số, dọn dẹp tự động theo quý.
+  \item Chạy trên hạ tầng sẵn có. Toàn bộ hệ thống đóng gói theo container, dùng PostgreSQL của đơn vị và có quy trình đóng gói, phát hành, hoàn tác phiên bản.
 \end{enumerate}
 
 \section{Kết quả về phương pháp}
@@ -34,7 +33,7 @@ Các số liệu đo kết quả mô hình và kết quả kinh doanh \textbf{ch
 \bottomrule
 \endfoot
 Định nghĩa rời bỏ & Chỉ đếm khách ngừng hẳn & Gồm cả khách giảm mạnh số đơn, doanh thu, hoặc xu hướng đi xuống\\
-\rowa Nhãn học & Chỉ dùng một nguồn & Nhãn thực tế ưu tiên, bổ sung quy tắc nghiệp vụ cho phần chưa có\\
+\rowa Nhãn học & Chỉ dùng một nguồn & Nhãn theo bốn quy tắc nghiệp vụ dựa trên đơn hàng thật\\
 Kiểm tra mô hình & Chia ngẫu nhiên & Chia theo thời gian, có khoảng đệm, giữ tháng gần nhất làm bài thi cuối kỳ\\
 \rowa Thay mô hình & Thay khi có mô hình mới & Chỉ thay khi tốt hơn và qua rào chắn\\
 Kết quả & Chỉ có điểm số & Điểm, thứ hạng và lý do bằng ngôn ngữ nghiệp vụ\\
@@ -42,37 +41,9 @@ Kết quả & Chỉ có điểm số & Điểm, thứ hạng và lý do bằng n
 \end{longtable}}
 \vspace{4pt}
 
-\section{Số liệu kết quả mô hình}
+\section{Số liệu đánh giá mô hình}
 
-Hệ thống đã lưu cấu hình và thước đo của mô hình đang được chấp nhận trong bảng cấu hình mô hình tốt nhất. Nhóm tác giả trích số liệu từ bảng này để hoàn thiện bảng dưới đây trước khi trình.
-
-{\tablefont
-\begin{longtable}{@{}L{5.6cm}C{3.2cm}>{\raggedright\arraybackslash}p{6.41cm}@{}}
-\caption{Số liệu mô hình đang vận hành}\label{tab:sophieu}\\
-\toprule
-\hdrrow\hh{Chỉ tiêu} & \hh{Giá trị} & \hh{Nguồn/ghi chú}\\
-\midrule
-\endfirsthead
-\toprule
-\hdrrow\hh{Chỉ tiêu} & \hh{Giá trị} & \hh{Nguồn/ghi chú}\\
-\midrule
-\endhead
-\bottomrule
-\endfoot
-Độ dài lịch sử quan sát được chọn (tháng) & \phc{~} & Cấu hình mô hình tốt nhất\\
-\rowa Điểm F1 trên bài thi cuối kỳ & \phc{~} & Bài thi cuối kỳ\\
-Độ chính xác cảnh báo & \phc{~} & \\
-\rowa Độ bao phủ & \phc{~} & \\
-Chất lượng xếp hạng (PR-AUC / ROC-AUC) & \phc{~} & \\
-\rowa Số khách đủ điều kiện được chấm điểm mỗi kỳ & \phc{~} & Từ bảng giám sát điểm số\\
-Số khách trong danh sách top 5\% mỗi kỳ & \phc{~} & Từ bảng rủi ro\\
-\rowa Số chu kỳ đã chạy liên tục & \phc{~} & Nhật ký chạy\\
-\end{longtable}}
-\vspace{4pt}
-
-\begin{luuy}[Về tính trung thực của số liệu]
-Việc điền đủ các số liệu trên là điều kiện để đánh giá đúng chất lượng. Nên ghi rõ tháng dữ liệu và phiên bản mô hình mà con số tương ứng, và chỉ dùng kết quả trên bài thi cuối kỳ (không dùng kết quả của các vòng tinh chỉnh) để báo cáo.
-\end{luuy}
+Mô hình đã được huấn luyện và kiểm tra theo thời gian trong quá trình phát triển, nhưng hệ thống chưa đưa vào vận hành chính thức và kết quả đo lường trên bài thi cuối kỳ chưa được tổng hợp. Các thước đo gồm điểm F1, độ chính xác cảnh báo, độ bao phủ, PR-AUC và ROC-AUC sẽ được báo cáo ở giai đoạn sau, kèm tháng dữ liệu và phiên bản mô hình tương ứng; chỉ kết quả trên bài thi cuối kỳ, không dùng kết quả của các vòng tinh chỉnh, được dùng để báo cáo.
 
 \section{Đánh giá mức độ hoàn thiện}
 
@@ -90,7 +61,7 @@ Việc điền đủ các số liệu trên là điều kiện để đánh giá
 \bottomrule
 \endfoot
 Nạp và kiểm tra dữ liệu & \textcolor{okgreen}{\bfseries Hoàn thành} & Chạy hằng ngày\\
-\rowa Tạo chỉ số, lọc điều kiện, gán nhãn & \textcolor{okgreen}{\bfseries Hoàn thành} & Nhãn thống nhất (thực tế + quy tắc)\\
+\rowa Tạo chỉ số, lọc điều kiện, gán nhãn & \textcolor{okgreen}{\bfseries Hoàn thành} & Nhãn theo quy tắc nghiệp vụ\\
 Mô hình, tinh chỉnh, xét duyệt & \textcolor{okgreen}{\bfseries Hoàn thành} & Huấn luyện lại theo chu kỳ, thiết kế khi đủ dữ liệu\\
 \rowa Chấm điểm và xuất danh sách & \textcolor{okgreen}{\bfseries Hoàn thành} & Bảng cơ sở dữ liệu + CSV\\
 Giám sát và dọn dẹp & \textcolor{okgreen}{\bfseries Hoàn thành} & Độ lệch dữ liệu, độ lệch điểm số\\

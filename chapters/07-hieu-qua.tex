@@ -3,7 +3,7 @@
 \chapter{Hiệu quả, lợi ích và chỉ tiêu đo lường}\label{ch:hieuqua}
 
 \begin{tomtat}[Cách tiếp cận]
-Hiệu quả kinh doanh của một hệ thống dự báo \textbf{không thể suy ra chỉ từ độ chính xác của mô hình}. Chương này trình bày
+Hiệu quả kinh doanh của một hệ thống dự báo không thể suy ra chỉ từ độ chính xác của mô hình. Chương này trình bày
 (1) lợi ích kỳ vọng, (2) cách lượng hóa giá trị, (3) bộ chỉ tiêu đo lường đề xuất và (4) thiết kế thử nghiệm đối chứng để chứng minh hiệu quả bằng số liệu thực tế.
 \end{tomtat}
 
@@ -34,15 +34,15 @@ Số liệu nhất quán & Một nguồn dữ liệu, một bộ công thức ch
 \section{Lợi ích dài hạn}
 
 \begin{itemize}
-  \item \textbf{Tích lũy tài sản dữ liệu:} mỗi kỳ chấm điểm tạo thêm lịch sử rủi ro của từng khách hàng, phục vụ phân tích xu hướng theo nhiều tháng.
-  \item \textbf{Vòng phản hồi:} kết quả chăm sóc được ghi nhận quay lại làm nhãn thực tế, giúp mô hình ngày càng sát nghiệp vụ.
-  \item \textbf{Hiểu nguyên nhân rời bỏ:} thống kê lý do rủi ro theo vùng, dịch vụ, nhóm khách giúp lãnh đạo nhận diện điểm yếu của chất lượng dịch vụ và chính sách, không chỉ xử lý từng khách.
-  \item \textbf{Nền tảng cho các bài toán tiếp theo:} cùng dây chuyền dữ liệu có thể dùng cho phân khúc khách hàng, tối ưu ngân sách chăm sóc (Chương~\ref{ch:morong}).
+  \item Tích lũy tài sản dữ liệu: mỗi kỳ chấm điểm tạo thêm lịch sử rủi ro của từng khách hàng, phục vụ phân tích xu hướng theo nhiều tháng.
+  \item Vòng phản hồi: kết quả chăm sóc được ghi nhận lại để rà soát quy tắc gán nhãn, giúp mô hình ngày càng sát nghiệp vụ.
+  \item Hiểu nguyên nhân rời bỏ: thống kê lý do rủi ro theo vùng, dịch vụ, nhóm khách giúp lãnh đạo nhận diện điểm yếu của chất lượng dịch vụ và chính sách, không chỉ xử lý từng khách.
+  \item Nền tảng cho các bài toán tiếp theo: cùng dây chuyền dữ liệu có thể dùng cho phân khúc khách hàng, tối ưu ngân sách chăm sóc (Chương~\ref{ch:morong}).
 \end{itemize}
 
 \section{Cách lượng hóa giá trị kinh doanh}
 
-Giá trị tạo ra của hệ thống nên được tính bằng công thức đơn giản, mọi biến số đều có thể lấy từ dữ liệu thực tế sau thử nghiệm:
+Giá trị tạo ra của hệ thống được đề xuất tính bằng công thức đơn giản dưới đây, mọi biến số đều có thể lấy từ dữ liệu thực tế sau thử nghiệm:
 
 \begin{center}
 \begin{callout}{lightgray}{black}{}
@@ -54,61 +54,61 @@ $\times$ Số khách được can thiệp $\times$ Doanh thu bình quân mỗi k
 \end{center}
 
 {\tablefont
-\begin{longtable}{@{}L{5.6cm}C{3.2cm}>{\raggedright\arraybackslash}p{6.41cm}@{}}
-\caption{Các biến cần điền sau thử nghiệm}\label{tab:bienso}\\
+\begin{longtable}{@{}L{6.4cm}>{\raggedright\arraybackslash}p{9.23cm}@{}}
+\caption{Các biến số và nguồn lấy số liệu}\label{tab:bienso}\\
 \toprule
-\hdrrow\hh{Biến số} & \hh{Giá trị} & \hh{Nguồn lấy số liệu}\\
+\hdrrow\hh{Biến số} & \hh{Nguồn lấy số liệu}\\
 \midrule
 \endfirsthead
 \toprule
-\hdrrow\hh{Biến số} & \hh{Giá trị} & \hh{Nguồn lấy số liệu}\\
+\hdrrow\hh{Biến số} & \hh{Nguồn lấy số liệu}\\
 \midrule
 \endhead
 \bottomrule
 \endfoot
-Số khách được can thiệp (nhóm áp dụng) & \phc{~} & Danh sách top 5\% và nhật ký chăm sóc\\
-\rowa Tỷ lệ giữ lại nhóm áp dụng & \phc{~\%} & Đơn hàng sau 1--2 tháng\\
-Tỷ lệ giữ lại nhóm đối chứng & \phc{~\%} & Đơn hàng sau 1--2 tháng\\
-\rowa Doanh thu bình quân mỗi khách/kỳ & \phc{~} & Dữ liệu doanh thu\\
-Chi phí chăm sóc phát sinh & \phc{~} & Đơn vị chăm sóc khách hàng\\
+Số khách được can thiệp (nhóm áp dụng) & Danh sách top 5\% và nhật ký chăm sóc\\
+\rowa Tỷ lệ giữ lại nhóm áp dụng & Đơn hàng sau 1--2 tháng\\
+Tỷ lệ giữ lại nhóm đối chứng & Đơn hàng sau 1--2 tháng\\
+\rowa Doanh thu bình quân mỗi khách/kỳ & Dữ liệu doanh thu\\
+Chi phí chăm sóc phát sinh & Đơn vị chăm sóc khách hàng\\
 \end{longtable}}
 \vspace{4pt}
 
 \section{Bộ chỉ tiêu đo lường đề xuất}
 
-Các chỉ tiêu được chia thành ba nhóm: \emph{chất lượng mô hình}, \emph{chất lượng vận hành}, \emph{kết quả kinh doanh}. Cột ``Mục tiêu'' để trống có chủ đích: mục tiêu nên được đặt sau khi có mức nền ở kỳ đầu tiên, tránh đặt con số không có căn cứ.
+Các chỉ tiêu được chia thành ba nhóm: \emph{chất lượng mô hình}, \emph{chất lượng vận hành}, \emph{kết quả kinh doanh}. Mục tiêu cụ thể cho từng chỉ tiêu sẽ được đặt sau khi hệ thống vận hành và có mức nền ở kỳ đầu tiên, tránh đặt con số không có căn cứ.
 
 \begin{table}[!ht]
 \centering\tablefont
 \caption{Bộ chỉ tiêu đo lường đề xuất}\label{tab:kpi}
-\begin{tabularx}{\textwidth}{@{}L{0.9cm}L{4.1cm}YL{1.9cm}L{1.9cm}@{}}
+\begin{tabularx}{\textwidth}{@{}L{1.2cm}L{4.4cm}YL{2.6cm}@{}}
 \toprule
-\hdrrow\hh{Nhóm} & \hh{Chỉ tiêu} & \hh{Cách tính / ý nghĩa} & \hh{Tần suất} & \hh{Mục tiêu}\\
+\hdrrow\hh{Nhóm} & \hh{Chỉ tiêu} & \hh{Cách tính / ý nghĩa} & \hh{Tần suất}\\
 \midrule
-\multirow{5}{*}{\rotatebox{90}{\textbf{Mô hình}}} & Điểm F1 & Cân bằng độ chính xác cảnh báo và độ bao phủ & Mỗi lần huấn luyện lại & \phc{~}\\
- & Độ chính xác trong top 5\% & Tỷ lệ khách thật sự rời bỏ trong danh sách ưu tiên & Hằng tháng & \phc{~}\\
- & Độ bao phủ trong top 5\% & Tỷ lệ khách rời bỏ thật được danh sách bắt được & Hằng tháng & \phc{~}\\
- & Chất lượng xếp hạng (PR-AUC) & Khách rủi ro cao có đứng trên khách rủi ro thấp không & Mỗi lần huấn luyện lại & \phc{~}\\
- & Mức lệch dữ liệu (PSI) & Số chỉ số ở mức cảnh báo & Mỗi lần huấn luyện lại & \phc{~}\\
+\multirow{5}{*}{\rotatebox{90}{\textbf{Mô hình}}} & Điểm F1 & Cân bằng độ chính xác cảnh báo và độ bao phủ & Mỗi lần huấn luyện lại\\
+ & Độ chính xác trong top 5\% & Tỷ lệ khách thật sự rời bỏ trong danh sách ưu tiên & Hằng tháng\\
+ & Độ bao phủ trong top 5\% & Tỷ lệ khách rời bỏ thật được danh sách bắt được & Hằng tháng\\
+ & Chất lượng xếp hạng (PR-AUC) & Khách rủi ro cao có đứng trên khách rủi ro thấp không & Mỗi lần huấn luyện lại\\
+ & Mức lệch dữ liệu (PSI) & Số chỉ số ở mức cảnh báo & Mỗi lần huấn luyện lại\\
 \midrule
-\multirow{4}{*}{\rotatebox{90}{\textbf{Vận hành}}} & Tỷ lệ luồng chạy thành công đúng lịch & Số lần chạy đạt / tổng số lần theo lịch & Hằng ngày & \phc{~}\\
- & Độ mới của dữ liệu & Khoảng cách giữa tháng dữ liệu mới nhất và tháng hiện tại & Hằng ngày & \phc{~}\\
- & Thời gian từ nạp dữ liệu đến có danh sách & Đo trọn chuỗi tự động & Hằng ngày & \phc{~}\\
- & Tỷ lệ mô hình mới được chấp nhận & Số lần chấp nhận / số lần huấn luyện & Hằng quý & \phc{~}\\
+\multirow{4}{*}{\rotatebox{90}{\textbf{Vận hành}}} & Tỷ lệ luồng chạy thành công đúng lịch & Số lần chạy đạt / tổng số lần theo lịch & Hằng ngày\\
+ & Độ mới của dữ liệu & Khoảng cách giữa tháng dữ liệu mới nhất và tháng hiện tại & Hằng ngày\\
+ & Thời gian từ nạp dữ liệu đến có danh sách & Đo trọn chuỗi tự động & Hằng ngày\\
+ & Tỷ lệ mô hình mới được chấp nhận & Số lần chấp nhận / số lần huấn luyện & Hằng quý\\
 \midrule
-\multirow{6}{*}{\rotatebox{90}{\textbf{Kinh doanh}}} & Tỷ lệ khách trong danh sách được liên hệ & Số khách được liên hệ / số khách trong danh sách & Hằng tháng & \phc{~}\\
- & Tỷ lệ giữ lại (so với đối chứng) & Khách còn phát sinh đơn sau 1--2 tháng & Mỗi đợt thử nghiệm & \phc{~}\\
- & Đơn giữ lại, doanh thu giữ lại & Chênh lệch so với nhóm đối chứng & Mỗi đợt thử nghiệm & \phc{~}\\
- & Chi phí chăm sóc mỗi khách giữ được & Tổng chi phí chăm sóc / số khách giữ thêm & Mỗi đợt thử nghiệm & \phc{~}\\
- & Số khiếu nại của nhóm được chăm sóc & Không được tăng so với đối chứng & Hằng tháng & \phc{~}\\
- & Tải công việc của đội chăm sóc & Số khách/cán bộ không vượt ngưỡng cho phép & Hằng tháng & \phc{~}\\
+\multirow{6}{*}{\rotatebox{90}{\textbf{Kinh doanh}}} & Tỷ lệ khách trong danh sách được liên hệ & Số khách được liên hệ / số khách trong danh sách & Hằng tháng\\
+ & Tỷ lệ giữ lại (so với đối chứng) & Khách còn phát sinh đơn sau 1--2 tháng & Mỗi đợt thử nghiệm\\
+ & Đơn giữ lại, doanh thu giữ lại & Chênh lệch so với nhóm đối chứng & Mỗi đợt thử nghiệm\\
+ & Chi phí chăm sóc mỗi khách giữ được & Tổng chi phí chăm sóc / số khách giữ thêm & Mỗi đợt thử nghiệm\\
+ & Số khiếu nại của nhóm được chăm sóc & Không được tăng so với đối chứng & Hằng tháng\\
+ & Tải công việc của đội chăm sóc & Số khách/cán bộ không vượt ngưỡng cho phép & Hằng tháng\\
 \bottomrule
 \end{tabularx}
 \end{table}
 
 \section{Kiểm tra lại trong quá khứ}
 
-Trước khi tin vào kết quả của một lần kiểm tra đơn lẻ, đề xuất chạy \textbf{kiểm tra lại trong quá khứ}: giả lập hệ thống như đang vận hành thật tại nhiều tháng khác nhau, mỗi lần chỉ dùng thông tin có trước thời điểm đó, rồi đối chiếu dự báo với kết quả thực tế sau đó.
+Trước khi tin vào kết quả của một lần kiểm tra đơn lẻ, đề xuất chạy kiểm tra lại trong quá khứ: giả lập hệ thống như đang vận hành thật tại nhiều tháng khác nhau, mỗi lần chỉ dùng thông tin có trước thời điểm đó, rồi đối chiếu dự báo với kết quả thực tế sau đó.
 
 \begin{itemize}
   \item Chọn nhiều mốc thời gian liên tiếp trong lịch sử dữ liệu hiện có.
@@ -139,7 +139,7 @@ Thước đo xa nghiệp vụ & Bổ sung độ chính xác và độ bao phủ 
 
 \section{Thử nghiệm đối chứng}
 
-Thước đo của mô hình chỉ cho biết mô hình khớp với nhãn tốt đến đâu. Câu hỏi của lãnh đạo là: \emph{ưu tiên chăm sóc theo danh sách này có giữ được khách, đơn hàng và doanh thu tốt hơn cách làm hiện tại không?}
+Thước đo của mô hình chỉ cho biết mô hình khớp với nhãn quy tắc tốt đến đâu. Câu hỏi của lãnh đạo là: \emph{ưu tiên chăm sóc theo danh sách này có giữ được khách, đơn hàng và doanh thu tốt hơn cách làm hiện tại không?}
 Chỉ thử nghiệm đối chứng mới trả lời được.
 
 \begin{figure}[!ht]
@@ -175,7 +175,7 @@ Rào chắn an toàn & Không làm tăng khiếu nại; không vượt tải c�
 \section{Cơ chế báo cáo và rà soát}
 
 \begin{itemize}
-  \item \textbf{Hằng tuần:} nhóm tác giả xem bảng giám sát (chạy thành công, độ lệch dữ liệu, điểm số).
-  \item \textbf{Hằng tháng:} báo cáo chỉ tiêu mô hình và vận hành cho đơn vị chăm sóc khách hàng.
-  \item \textbf{Cuối đợt thử nghiệm:} báo cáo hiệu quả kinh doanh của đợt thử nghiệm.
+  \item Hằng tuần: nhóm tác giả xem bảng giám sát (chạy thành công, độ lệch dữ liệu, điểm số).
+  \item Hằng tháng: báo cáo chỉ tiêu mô hình và vận hành cho đơn vị chăm sóc khách hàng.
+  \item Cuối đợt thử nghiệm: báo cáo hiệu quả kinh doanh của đợt thử nghiệm.
 \end{itemize}

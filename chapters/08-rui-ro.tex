@@ -18,7 +18,7 @@
 \endhead
 \bottomrule
 \endfoot
-R1 & Nhãn thực tế còn ít (khoảng 1.501 dòng), nhãn theo quy tắc có thể nhiễu & TB & Cao & Ưu tiên tuyệt đối nhãn thực tế; quy tắc nghiệp vụ bổ sung có kiểm soát tỷ lệ; đội chăm sóc ghi nhận kết quả để mở rộng nhãn; nghiên cứu làm mịn nhãn (Mục~\ref{sec:lamminh}).\\
+R1 & Nhãn theo quy tắc nghiệp vụ có thể nhiễu & TB & Cao & Tham khảo ý kiến đội chăm sóc khách hàng khi xây dựng và rà soát quy tắc; kiểm soát tỷ lệ gán nhãn; nghiên cứu làm mịn nhãn (Mục~\ref{sec:lamminh}).\\
 \rowa R2 & Dữ liệu nguồn thay đổi cấu trúc, chậm hoặc thiếu tháng & TB & Cao & Chuẩn hóa cấu trúc khi nạp; kiểm tra độ mới và đầy đủ; nhật ký nạp; đề xuất ``hợp đồng dữ liệu'' với đội kỹ thuật dữ liệu.\\
 R3 & Hành vi khách hàng thay đổi, mô hình lạc hậu & TB & TB & Huấn luyện lại định kỳ; giám sát độ lệch dữ liệu và điểm số; cổng xét duyệt trước khi thay mô hình.\\
 \rowa R4 & Cảnh báo nhầm nhiều, đội chăm sóc quá tải & TB & TB & Giới hạn danh sách ở top 5\%; theo dõi độ chính xác trong top; đặt ngưỡng tải công việc; điều chỉnh tỷ lệ cắt khi cần.\\
@@ -40,13 +40,13 @@ R11 & Đánh giá quá lạc quan do ``nhìn trộm'' tương lai & Thấp & Cao
 \caption{Ma trận rủi ro sơ bộ do nhóm biên soạn đánh giá}\label{fig:maTran}
 \end{figure}
 
-Ba rủi ro nằm ở ô trung bình--cao (R1, R2, R5) cần được theo dõi \textbf{hằng tháng} bởi lãnh đạo bảo trợ: chất lượng nhãn, độ ổn định của dữ liệu nguồn, và mức độ đội chăm sóc thực sự hành động theo danh sách.
+Ba rủi ro nằm ở ô trung bình--cao (R1, R2, R5) cần được theo dõi hằng tháng bởi lãnh đạo bảo trợ: chất lượng nhãn, độ ổn định của dữ liệu nguồn, và mức độ đội chăm sóc thực sự hành động theo danh sách.
 
 \section{Nguyên tắc ứng phó khi có sự cố}
 
 \begin{enumerate}
-  \item \textbf{Dữ liệu lỗi hoặc đến muộn:} hệ thống ghi nhận trạng thái và không tự thay mô hình; danh sách vẫn xuất từ mô hình đã được xét duyệt; người vận hành kiểm tra nhật ký, yêu cầu kỹ thuật dữ liệu bổ sung.
-  \item \textbf{Mô hình mới kém hơn:} bị từ chối tự động, mô hình cũ giữ nguyên; nhóm tác giả phân tích nguyên nhân.
-  \item \textbf{Danh sách bất thường:} đối chiếu bảng giám sát điểm số; tạm ngừng chuyển danh sách cho nghiệp vụ nếu nghi ngờ.
-  \item \textbf{Sự cố hạ tầng:} khôi phục từ phiên bản đóng gói gần nhất; chạy lại luồng công việc theo thứ tự.
+  \item Dữ liệu lỗi hoặc đến muộn: hệ thống ghi nhận trạng thái và không tự thay mô hình; danh sách vẫn xuất từ mô hình đã được xét duyệt; người vận hành kiểm tra nhật ký, yêu cầu kỹ thuật dữ liệu bổ sung.
+  \item Mô hình mới kém hơn: bị từ chối tự động, mô hình cũ giữ nguyên; nhóm tác giả phân tích nguyên nhân.
+  \item Danh sách bất thường: đối chiếu bảng giám sát điểm số; tạm ngừng chuyển danh sách cho nghiệp vụ nếu nghi ngờ.
+  \item Sự cố hạ tầng: khôi phục từ phiên bản đóng gói gần nhất; chạy lại luồng công việc theo thứ tự.
 \end{enumerate}

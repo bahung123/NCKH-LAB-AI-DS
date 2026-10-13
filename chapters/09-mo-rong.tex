@@ -4,7 +4,7 @@
 
 \section{Mở rộng sang các bài toán khác}\label{sec:baitoankhac}
 
-Đề tài gồm nhiều bài toán thành phần; bài toán rời bỏ chỉ là bài toán đầu tiên. Phần đã xây dựng cho bài toán này được tổ chức theo từng tầng độc lập nên nhiều tầng có thể tái sử dụng khi triển khai bài toán mới, thay vì làm lại từ đầu.
+Phần đã xây dựng cho bài toán rời bỏ được tổ chức theo từng tầng độc lập nên nhiều tầng có thể tái sử dụng khi triển khai bài toán mới, thay vì làm lại từ đầu.
 
 Các tầng nạp và kiểm tra dữ liệu, tạo chỉ số hành vi, huấn luyện và xét duyệt mô hình, chấm điểm, giám sát và đo hiệu quả bằng thử nghiệm đối chứng
 đều có thể dùng lại; phần cần làm riêng cho mỗi bài toán mới là định nghĩa đáp án đúng, chỉ số bổ sung, thước đo chất lượng và đầu ra giao cho đơn vị sử dụng.
@@ -99,10 +99,9 @@ Chỉ báo mức tin cậy & Khi cần chỉ tự động hành động ở nhó
 
 \section{Làm mịn nhãn bằng ``mẫu hành vi điển hình''}\label{sec:lamminh}
 
-Hiện nay nhãn rời bỏ theo quy tắc là ``có'' hoặc ``không'' tuyệt đối. Với dữ liệu nghiệp vụ còn nhiễu, có thể làm mềm nhãn: xác định các \textbf{mẫu hành vi điển hình} xuất hiện trước khi khách rời bỏ, và các mẫu của khách ổn định, rồi dùng độ giống mẫu để điều chỉnh nhãn ở vùng quy tắc ``chưa chắc chắn''.
+Hiện nay nhãn rời bỏ theo quy tắc là ``có'' hoặc ``không'' tuyệt đối. Với dữ liệu nghiệp vụ còn nhiễu, có thể làm mềm nhãn: xác định các mẫu hành vi điển hình xuất hiện trước khi khách rời bỏ, và các mẫu của khách ổn định, rồi dùng độ giống mẫu để điều chỉnh nhãn ở vùng quy tắc ``chưa chắc chắn''.
 
 \begin{itemize}
-  \item Nhãn thực tế \textbf{không bị thay đổi}; chỉ làm mềm nhãn do quy tắc sinh ra.
   \item Các mẫu chỉ xây từ nhóm khách có độ tin cậy cao, và chỉ học trên phần dữ liệu học của từng vòng để tránh ``nhìn trộm''.
-  \item Thực hiện ở nhánh thử nghiệm, so sánh với cách hiện tại trên bài thi cuối kỳ; \textbf{không đưa vào vận hành} nếu chỉ tăng F1 trên nhãn quy tắc mà giảm độ chính xác trên nhãn thực tế.
+  \item Thực hiện ở nhánh thử nghiệm, so sánh với cách hiện tại trên bài thi cuối kỳ; không đưa vào vận hành nếu chỉ tăng F1 trên nhãn quy tắc mà không cải thiện kết quả ở thử nghiệm đối chứng.
 \end{itemize}
