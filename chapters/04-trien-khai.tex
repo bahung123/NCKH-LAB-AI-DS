@@ -6,7 +6,7 @@
 \section{Kiến trúc tổng thể}
 
 Hệ thống được xây dựng theo kiến trúc nhiều tầng, chạy hoàn toàn trong các container trên máy chủ nội bộ,
-dùng chung cơ sở dữ liệu PostgreSQL của đơn vị. Bộ điều phối công việc Apache Airflow là ``người điều hành lịch'': kích hoạt từng khâu đúng giờ, ghi nhật ký, thử lại khi lỗi.
+dùng chung cơ sở dữ liệu PostgreSQL~\cite{postgresdocs} của đơn vị. Bộ điều phối công việc Apache Airflow~\cite{airflowdocs} là ``người điều hành lịch'': kích hoạt từng khâu đúng giờ, ghi nhật ký, thử lại khi lỗi.
 
 \begin{figure}[!ht]
 \centering
@@ -117,7 +117,7 @@ Gói mô hình & Lưu cùng nhau: mô hình, danh sách chỉ số, hồ sơ ch�
 \vspace{4pt}
 
 \begin{hieunhanh}[PSI và KS là gì?]
-Là hai phép đo độ lệch của dữ liệu. Nếu số liệu tháng này khác hẳn số liệu mà mô hình từng học ví dụ do đổi cách ghi nhận dữ liệu, hoặc do thị trường biến động mạnh, hệ thống sẽ ghi nhận để con người kiểm tra trước khi tin vào kết quả.
+Là hai phép đo độ lệch của dữ liệu~\cite{siddiqi2006scorecards,massey1951ks,gama2014drift}. Nếu số liệu tháng này khác hẳn số liệu mà mô hình từng học ví dụ do đổi cách ghi nhận dữ liệu, hoặc do thị trường biến động mạnh, hệ thống sẽ ghi nhận để con người kiểm tra trước khi tin vào kết quả.
 \end{hieunhanh}
 
 \section{Hạ tầng và cài đặt}
@@ -148,7 +148,7 @@ Kho ảnh đóng gói nội bộ & Lưu phiên bản đóng gói của hệ th�
 \vspace{4pt}
 
 Hệ thống được đóng gói trên nền Airflow phiên bản 3.1.7; giao diện quản trị được đặt tại địa chỉ \texttt{ai.vnpost.vn/airflow-churn}.
-Việc đóng gói theo container giúp sao chép môi trường sang máy chủ khác, nâng cấp hoặc quay lại phiên bản trước một cách nhanh chóng và có kiểm soát.
+Việc đóng gói theo container~\cite{dockerdocs} giúp sao chép môi trường sang máy chủ khác, nâng cấp hoặc quay lại phiên bản trước một cách nhanh chóng và có kiểm soát.
 
 \subsection{Khi thay đổi cần làm gì}
 

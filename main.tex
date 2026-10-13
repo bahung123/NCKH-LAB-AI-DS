@@ -31,9 +31,10 @@
 \renewcommand{\chaptername}{Phụ lục}
 \input{chapters/99-phuluc}
 
-% Tài liệu tham khảo: bật lại 2 dòng dưới đây khi đã thêm mục BibTeX vào references.bib
-% (hiện references.bib chưa có mục nào — nếu để bật sẽ sinh trang "Tài liệu tham khảo" trống)
-% \cleardoublepage
-% \bibliographystyle{unsrt}
-% \bibliography{references}
+% Tài liệu tham khảo (BibTeX, nguồn: references.bib)
+\cleardoublepage
+\renewcommand{\bibname}{Tài liệu tham khảo}
+\addcontentsline{toc}{chapter}{Tài liệu tham khảo}
+\bibliographystyle{unsrt}
+\bibliography{references}
 \end{document}
