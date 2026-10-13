@@ -1,43 +1,138 @@
-% 00-frontmatter.tex — Trang đầu: đơn đề nghị công nhận sáng kiến
+% 00-frontmatter.tex — Trang bìa, lời nói đầu, tóm tắt điều hành, danh mục từ viết tắt
 
-\thispagestyle{empty}
-% ================= ĐỀ NGHỊ CÔNG NHẬN =================
-\begin{tabularx}{\textwidth}{@{}>{\centering\arraybackslash}X>{\centering\arraybackslash}X@{}}
-  {\sffamily\bfseries\small TỔNG CÔNG TY BƯU ĐIỆN VIỆT NAM} &
-  {\sffamily\bfseries\small CỘNG HOÀ XÃ HỘI CHỦ NGHĨA VIỆT NAM\newline Độc lập -- Tự do -- Hạnh phúc}
-\end{tabularx}
+% ===================== TRANG BÌA =====================
+\begin{titlepage}
+\centering
+\vspace*{0.8cm}
 
-\vspace{14pt}
-\begin{center}
-{\sffamily\bfseries\large\color{navy} ĐỀ NGHỊ CÔNG NHẬN SÁNG KIẾN CẤP TỔNG CÔNG TY}\\[8pt]
-{\itshape Kính gửi: Hội đồng sáng kiến Tổng công ty.}
-\end{center}
+{\large\bfseries TỔNG CÔNG TY BƯU ĐIỆN VIỆT NAM}\\[0.25cm]
+{\normalsize [ĐƠN VỊ THỰC HIỆN]}\\[1.5cm]
 
-Chúng tôi ghi tên dưới đây:
+{\color{navy}\rule{\textwidth}{0.8pt}}\\[0.9cm]
 
-\begin{center}\tablefont
-\begin{tabularx}{\textwidth}{|C{0.7cm}|Y|C{1.2cm}|C{1.3cm}|C{1.8cm}|Y|C{1.8cm}|C{1.4cm}|C{1.2cm}|}
-\hline
-\hh{TT}&\hh{Họ và tên tác giả}&\hh{Nam/ Nữ}&\hh{Năm sinh}&\hh{Trình độ chuyên môn}&\hh{Chức vụ, đơn vị công tác}&\hh{Thành phần}&\hh{Tỷ lệ đóng góp (\%)}&\hh{Ký tên}\\\hline
-1 & \phc{Họ tên} & \phc{~} & \phc{~} & \phc{~} & \phc{~} & \phc{~} & \phc{~} & \\\hline
-2 & \phc{Họ tên} & \phc{~} & \phc{~} & \phc{~} & \phc{~} & \phc{~} & \phc{~} & \\\hline
-3 & \phc{Họ tên} & \phc{~} & \phc{~} & \phc{~} & \phc{~} & \phc{~} & \phc{~} & \\\hline
-\end{tabularx}
-\end{center}
+\begin{minipage}{0.86\textwidth}
+\centering
+{\bfseries\large
+Triển khai các mô hình dự báo, dự đoán về hành vi của khách hàng
+phục vụ công tác cải thiện chất lượng dịch vụ và giữ chân người dùng.\par}
+\end{minipage}\\[0.9cm]
 
-\begin{itemize}[label={--}]
-  \item Điện thoại: \phc{số điện thoại}\hfill Email: \phc{địa chỉ email}
-  \item Địa chỉ: \phc{địa chỉ đơn vị}
-  \item Đề nghị xét công nhận sáng kiến cấp Tổng công ty: \textbf{Triển khai các mô hình dự báo, dự đoán về hành vi của khách hàng phục vụ công tác cải thiện chất lượng dịch vụ và giữ chân người dùng.}
-  \item Bài toán triển khai trước: \textbf{dự báo khách hàng có nguy cơ rời bỏ dịch vụ.}
-  \item Thời điểm bắt đầu áp dụng: \phc{tháng/năm}
-  \item Địa điểm áp dụng: Tổng công ty Bưu điện Việt Nam
-\end{itemize}
+{\color{navy}\rule{\textwidth}{0.8pt}}\\[0.8cm]
+
+{\bfseries BÁO CÁO KHOA HỌC}\\[2.6cm]
+
+\begin{tabular}{@{}r@{\hspace{8mm}}l@{}}
+\textbf{Kính gửi:} & Ban lãnh đạo Tổng công ty Bưu điện Việt Nam \\[0.22cm]
+\textbf{Đơn vị thực hiện:} & [Đơn vị thực hiện] \\[0.22cm]
+\textbf{Ngày báo cáo:} & [NGÀY/THÁNG/NĂM] \\
+\end{tabular}
 
 \vfill
-\begin{tabularx}{\textwidth}{@{}>{\centering\arraybackslash}X>{\centering\arraybackslash}X@{}}
-  \textbf{XÁC NHẬN CỦA ĐƠN VỊ}\newline{\small\itshape(Ký tên, đóng dấu)} &
-  {\itshape Hà Nội, ngày \phc{~} tháng \phc{~} năm 2026}\newline\textbf{Tác giả sáng kiến}\newline{\small\itshape(Ký tên)}
-\end{tabularx}
-\vspace{2.2cm}
-\clearpage
+{\large\bfseries [NĂM]}
+\end{titlepage}
+
+% ===================== LỜI NÓI ĐẦU =====================
+\chapter*{Lời nói đầu}
+\addcontentsline{toc}{chapter}{Lời nói đầu}
+Trong hoạt động bưu chính -- chuyển phát, khách hàng không nói với doanh nghiệp mọi điều
+họ nghĩ, nhưng họ để lại dấu vết trong dữ liệu vận hành: gửi bao nhiêu đơn, vào những ngày
+nào, đơn giao có đúng hẹn không, có khiếu nại không, doanh thu mỗi tháng tăng hay giảm.
+Khoa học dữ liệu cho phép khai thác các dấu vết đó một cách có hệ thống để hiểu khách hàng
+đang làm gì, vì sao, và nhiều khả năng sẽ làm gì tiếp theo. Báo cáo khoa học này trình bày
+kết quả nghiên cứu và triển khai của đề tài ``Triển khai các mô hình dự báo, dự đoán về
+hành vi của khách hàng phục vụ công tác cải thiện chất lượng dịch vụ và giữ chân người
+dùng'' tại Tổng công ty Bưu điện Việt Nam, trong đó đi sâu vào bài toán đầu tiên:
+dự báo khách hàng có nguy cơ rời bỏ dịch vụ.
+
+Báo cáo được tổ chức theo trình tự từ vấn đề đến giải pháp và kiểm nghiệm: giới thiệu đề
+tài và bối cảnh; mục tiêu và phạm vi; nội dung giải pháp (chuỗi công việc sáu bước, chỉ số
+hành vi, nhãn học, mô hình hai lớp, kiểm tra theo thời gian và lý do rủi ro); cách thức
+triển khai và vận hành tự động; nguồn lực và tiến độ; kết quả áp dụng; hiệu quả và bộ chỉ
+tiêu đo lường; đánh giá và quản lý rủi ro; cùng khả năng áp dụng, mở rộng cho các bài
+toán hành vi khác.
+
+Toàn bộ kết quả trình bày trong báo cáo được làm từ dữ liệu vận hành có sẵn của Tổng công
+ty; các số liệu cần xác nhận được để trống cho nhóm tác giả điền trước khi trình, không
+ước tính thay số thực.
+
+Xin gửi lời cảm ơn tới Ban lãnh đạo và các đơn vị nghiệp vụ, kỹ thuật dữ liệu đã tạo điều
+kiện, chia sẻ bối cảnh nghiệp vụ và dữ liệu để hoàn thành báo cáo này.
+
+\vspace{1cm}
+\begin{flushright}
+\emph{[Đơn vị thực hiện]}
+\end{flushright}
+
+% ===================== TÓM TẮT ĐIỀU HÀNH =====================
+\chapter*{Tóm tắt điều hành}
+\addcontentsline{toc}{chapter}{Tóm tắt điều hành}
+Tổng công ty Bưu điện Việt Nam cung cấp dịch vụ bưu chính, chuyển phát cho một số lượng
+lớn khách hàng, trong đó nhóm khách hàng doanh nghiệp, cửa hàng và đơn vị thương mại điện
+tử gửi hàng thường xuyên theo hợp đồng vừa mang lại sản lượng, doanh thu ổn định, vừa có
+nhiều lựa chọn thay thế trên thị trường. Với nhóm khách hàng này, việc giữ được một khách
+hàng đang sử dụng thường có ý nghĩa kinh doanh lớn hơn tìm thêm một khách hàng mới tương
+đương, và điều kiện để giữ chân là phải nhận biết sớm khi khách hàng bắt đầu thay
+đổi hành vi. Báo cáo này nghiên cứu việc dùng dữ liệu vận hành sẵn có để dự báo trước
+hành vi của khách hàng, tập trung bài toán đầu tiên: dự báo khách hàng có nguy cơ rời bỏ
+dịch vụ, được hiểu rộng là ngừng hẳn, giảm mạnh số đơn, giảm mạnh doanh thu hoặc có xu
+hướng đi xuống rõ rệt.
+
+Về phương pháp, báo cáo thiết kế một chuỗi công việc sáu bước: phân nhóm khách hàng; lọc
+nhóm đủ điều kiện dự báo; xây dựng hệ chỉ số hành vi (so với mức nền dài hạn của chính
+khách hàng đó); gán nhãn học, trong đó nhãn thực tế từ đội chăm sóc -- khoảng 1.501 dòng
+trạng thái rời bỏ đã khảo sát -- được ưu tiên và bổ sung bằng quy tắc nghiệp vụ cho phần
+chưa bao phủ; huấn luyện mô hình hai lớp (mô hình cơ sở làm tham chiếu và mô hình chính
+thuộc nhóm cây quyết định tăng cường kiểu XGBoost) với hai giai đoạn tinh chỉnh và kiểm
+tra theo thời gian (học từ tháng cũ, kiểm tra trên tháng mới hơn, giữ tháng gần nhất làm
+bài thi cuối kỳ); và đánh giá bằng các thước đo quay lại với nghiệp vụ: F1, độ chính xác
+cảnh báo, độ bao phủ, PR-AUC và ROC-AUC. Mỗi dự báo đi kèm tối đa ba lý do rủi ro thuộc
+tám nhóm nghiệp vụ, được suy ra bằng kỹ thuật phân tích mức đóng góp SHAP.
+
+Về vận hành, toàn bộ hệ thống được tổ chức thành sáu luồng công việc tự động nối tiếp
+trên nền điều phối Apache Airflow: nạp -- kiểm tra dữ liệu hằng ngày, tạo chỉ số và gán
+nhãn, huấn luyện lại theo chu kỳ với rào chắn xét duyệt (chỉ thay mô hình khi tốt hơn và
+qua kiểm định), chấm điểm và xuất danh sách, giám sát độ lệch dữ liệu và điểm số bằng PSI
+và KS, cùng dọn dẹp định kỳ. Hệ thống chạy trên hạ tầng sẵn có của đơn vị, dùng PostgreSQL
+và đóng gói theo container với quy trình phát hành, hoàn tác phiên bản; danh sách ưu tiên
+giới hạn ở 5\% khách rủi ro cao nhất mỗi kỳ để đội chăm sóc xử lý được thực sự. Kết quả áp
+dụng cho thấy dây chuyền từ dữ liệu thô đến danh sách kèm lý do đã khép kín và đang chạy;
+các số liệu đo chất lượng mô hình và hiệu quả kinh doanh được ghi đủ trong Bảng số liệu mô
+hình đang vận hành của báo cáo trước khi trình. Báo cáo cũng đánh giá minh bạch các hạng
+mục chưa hoàn thành (khách mùa vụ, khách mới, quản lý vòng đời mô hình, thử nghiệm đối
+chứng), đặt trong quản trị rủi ro cụ thể, và đề xuất lộ trình nâng cấp cùng khả năng tái
+sử dụng nền đã xây cho các bài toán hành vi khác theo cùng khung chuỗi bảy bước.
+
+\vspace{0.4cm}
+\noindent\textbf{Từ khóa:} dự báo hành vi khách hàng, rời bỏ dịch vụ, giữ chân khách
+hàng, học máy, XGBoost, chỉ số hành vi, kiểm tra theo thời gian, SHAP, Apache Airflow.
+
+% ===================== DANH MỤC TỪ VIẾT TẮT =====================
+\chapter*{Danh mục từ viết tắt}
+\addcontentsline{toc}{chapter}{Danh mục từ viết tắt}
+\begin{longtable}{@{}p{3.2cm}p{11.5cm}@{}}
+\toprule
+\textbf{Từ viết tắt} & \textbf{Diễn giải} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{Từ viết tắt} & \textbf{Diễn giải} \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+Airflow & Apache Airflow -- phần mềm điều phối luồng công việc theo lịch \\
+API & Application Programming Interface -- giao diện lập trình ứng dụng \\
+AUC & Area Under the Curve -- diện tích dưới đường cong của thước đo xếp hạng \\
+COD & Cash on Delivery -- thu hộ tiền khi giao hàng \\
+CSV & Comma-Separated Values -- tệp dữ liệu phân tách bằng dấu phẩy \\
+DAG & Directed Acyclic Graph -- đồ thị có hướng không chu trình, khai báo luồng công việc \\
+F1 & Điểm F1 -- cân bằng giữa độ chính xác cảnh báo và độ bao phủ \\
+KS & Kolmogorov--Smirnov -- phép đo độ lệch phân phối dữ liệu \\
+My VNPost & Ứng dụng bưu gửi của Tổng công ty Bưu điện Việt Nam \\
+PR & Precision--Recall -- đường cong độ chính xác/bao phủ (PR-AUC) \\
+PSI & Population Stability Index -- chỉ số ổn định dân số, đo độ lệch dữ liệu \\
+ROC & Receiver Operating Characteristic -- đường cong đặc trưng hoạt động (ROC-AUC) \\
+SHAP & SHapley Additive exPlanations -- mức đóng góp của từng chỉ số vào kết quả dự báo \\
+SQL & Structured Query Language -- ngôn ngữ truy vấn cơ sở dữ liệu \\
+XGBoost & Extreme Gradient Boosting -- thuật toán cây quyết định tăng cường \\
+\end{longtable}
