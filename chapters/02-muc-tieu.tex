@@ -4,11 +4,10 @@
 
 \section{Mục tiêu tổng quát của đề tài}
 
-Triển khai các mô hình dự báo, dự đoán về hành vi của khách hàng, phục vụ công tác \textbf{cải thiện chất lượng dịch vụ}
-và \textbf{giữ chân người dùng}. Đề tài gồm nhiều bài toán thành phần, được triển khai lần lượt; bài toán đầu tiên là
-dự báo khách hàng rời bỏ dịch vụ.
+Triển khai các mô hình dự báo, dự đoán về hành vi của khách hàng, phục vụ công tác cải thiện chất lượng dịch vụ
+và giữ chân người dùng. Báo cáo này tập trung vào bài toán dự báo khách hàng rời bỏ dịch vụ.
 
-\section{Mục tiêu của bài toán đầu tiên: khách hàng rời bỏ}
+\section{Mục tiêu của bài toán: khách hàng rời bỏ}
 
 Xây dựng và đưa vào vận hành một hệ thống tự động dự báo sớm khách hàng có nguy cơ rời bỏ dịch vụ, cung cấp cho đội chăm sóc khách hàng một danh sách ưu tiên kèm lý do rủi ro, qua đó hỗ trợ giữ chân khách hàng có giá trị và nâng cao hiệu quả điều hành.
 
@@ -41,10 +40,10 @@ Xây dựng và đưa vào vận hành một hệ thống tự động dự báo
 \subsection{Đối tượng và thời gian}
 
 \begin{itemize}
-  \item \textbf{Đối tượng dự báo:} từng khách hàng, được nhận diện bằng mã khách hàng đã mã hóa.
-  \item \textbf{Chân trời dự báo:} hai tháng tiếp theo. Hệ thống nhìn vào hành vi các tháng gần nhất để dự báo tháng kế tiếp và tháng kế tiếp nữa.
-  \item \textbf{Độ dài lịch sử quan sát:} tối thiểu ba tháng gần nhất; hệ thống tự thử nhiều độ dài khác nhau và chọn độ dài cho kết quả tốt nhất.
-  \item \textbf{Nhóm ưu tiên:} khách hàng có sản lượng và doanh thu cao. Tài liệu nghiệp vụ nhắc đến ngưỡng khoảng 3 triệu đồng doanh thu mỗi tháng và nhóm gửi trên 100 đơn mỗi tháng; hệ thống đã có sẵn bộ lọc theo sản lượng và doanh thu để nâng ngưỡng khi nghiệp vụ yêu cầu.
+  \item Đối tượng dự báo: từng khách hàng, được nhận diện bằng mã khách hàng đã mã hóa.
+  \item Chân trời dự báo: hai tháng tiếp theo. Hệ thống nhìn vào hành vi các tháng gần nhất để dự báo tháng kế tiếp và tháng kế tiếp nữa.
+  \item Độ dài lịch sử quan sát: tối thiểu ba tháng gần nhất; hệ thống tự thử nhiều độ dài khác nhau và chọn độ dài cho kết quả tốt nhất.
+  \item Nhóm ưu tiên: khách hàng có sản lượng và doanh thu cao. Tài liệu nghiệp vụ nhắc đến ngưỡng khoảng 3 triệu đồng doanh thu mỗi tháng và nhóm gửi trên 100 đơn mỗi tháng; hệ thống đã có sẵn bộ lọc theo sản lượng và doanh thu để nâng ngưỡng khi nghiệp vụ yêu cầu.
 \end{itemize}
 
 \subsection{Nhóm khách hàng chưa đưa vào phiên bản này}
@@ -52,9 +51,9 @@ Xây dựng và đưa vào vận hành một hệ thống tự động dự báo
 Để bảo đảm độ tin cậy, phiên bản hiện tại chủ động loại một số nhóm khách hàng mà việc dự báo dễ gây nhiễu:
 
 \begin{itemize}
-  \item \textbf{Khách hàng mới:} Khách hàng chỉ dùng dịch vụ một lần hoặc chưa đủ lịch sử hoạt động.
-  \item \textbf{Khách phụ hồi:} Khách hàng quay lại sau thời gian ngừng.
-  \item \textbf{Khách mùa vụ:} Khách hàng có tính mùa vụ rõ rệt, vì giảm đơn ngoài mùa là bình thường, không phải rời bỏ.
+  \item Khách hàng mới: Khách hàng chỉ dùng dịch vụ một lần hoặc chưa đủ lịch sử hoạt động.
+  \item Khách phụ hồi: Khách hàng quay lại sau thời gian ngừng.
+  \item Khách mùa vụ: Khách hàng có tính mùa vụ rõ rệt, vì giảm đơn ngoài mùa là bình thường, không phải rời bỏ.
 \end{itemize}
 
 Ba nhóm này được đưa vào lộ trình phát triển với cách xử lý riêng, thay vì trộn lẫn làm sai lệch kết quả chính.
@@ -76,7 +75,7 @@ Ba nhóm này được đưa vào lộ trình phát triển với cách xử lý
 \endfoot
 Mỗi tầng một nhiệm vụ & Nạp dữ liệu, tạo chỉ số, huấn luyện, chấm điểm và giám sát được tách riêng; lỗi ở tầng nào xử lý ở tầng đó, không lan sang tầng khác.\\
 \rowa Nhìn về phía trước, không ``nhìn trộm'' & Chỉ dùng thông tin có trước thời điểm dự báo để học; kiểm tra mô hình bằng cách giả lập đúng như đang vận hành tại từng thời điểm trong quá khứ.\\
-Ưu tiên nhãn thực tế & Khi có xác nhận thực tế từ đội chăm sóc thì dùng xác nhận đó; chỉ dùng quy tắc nghiệp vụ cho phần chưa có xác nhận.\\
+Nhãn theo quy tắc nghiệp vụ & Nhãn rời bỏ được xác định bằng quy tắc rõ ràng, dựa trên đơn hàng thật, có tham khảo ý kiến đội chăm sóc khách hàng.\\
 \rowa Không đánh đổi chất lượng lấy tốc độ & Mô hình mới chỉ được dùng khi vượt mô hình hiện tại và qua các kiểm tra an toàn.\\
 Giải thích được & Kết quả luôn đi kèm lý do để con người có thể kiểm tra, phản biện và hành động.\\
 \end{longtable}}

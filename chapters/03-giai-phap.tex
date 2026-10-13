@@ -32,7 +32,7 @@ Dựa trên tài liệu nghiệp vụ, khách hàng được chia thành các nh
 \endhead
 \bottomrule
 \endfoot
-\textbf{Rời bỏ} & Tháng tiếp theo không phát sinh đơn, trong khi tháng trước có đơn. & Là một tiêu chí chính khi gán nhãn; chỉ khách đang hoạt động và đủ điều kiện mới được chấm điểm.\\
+\textbf{Rời bỏ} & Tháng tiếp theo không phát sinh đơn, trong khi tháng trước có đơn. & Là một quy tắc chính khi gán nhãn; chỉ khách đang hoạt động và đủ điều kiện mới được chấm điểm.\\
 \rowa\textbf{Nguy cơ suy giảm cao} & Số đơn tháng tiếp theo thấp hơn 50\% mức trung bình các tháng trước. & Là tiêu chí chính; mô hình còn học thêm xu hướng doanh thu và mức biến động.\\
 \textbf{Khách mới} & Tháng hiện tại là tháng đầu tiên có giao dịch. & Chưa đưa vào dự báo chính; cần theo dõi bằng nhóm riêng.\\
 \rowa\textbf{Khách phục hồi} & Từng ngừng, nay phát sinh đơn trở lại. & Có thể tách thành nhóm theo dõi riêng, không trộn vào dữ liệu học.\\
@@ -45,7 +45,7 @@ Dựa trên tài liệu nghiệp vụ, khách hàng được chia thành các nh
 
 Nếu đưa mọi khách hàng vào, kể cả người chỉ gửi đúng một lần, mô hình sẽ học sai rằng ``ai dùng ngắn hạn cũng là người rời bỏ''.
 Điều này làm giảm độ chính xác và khiến danh sách chăm sóc chứa nhiều khách không phù hợp.
-Vì vậy hệ thống áp dụng \textbf{bộ lọc điều kiện} giống nhau cho cả lúc học và lúc chấm điểm.
+Vì vậy hệ thống áp dụng bộ lọc điều kiện giống nhau cho cả lúc học và lúc chấm điểm.
 
 \begin{figure}[!ht]
 \centering
@@ -113,14 +113,7 @@ Việc so sánh với mức nền của chính từng khách giúp mô hình ph�
 
 \section{Xác định ai là khách hàng rời bỏ: gán nhãn}\label{sec:nhan}
 
-Để mô hình học được, cần có ``đáp án'' cho các tháng đã qua: khách nào thực sự đã rời bỏ. Hệ thống dùng một bộ nhãn thống nhất theo nguyên tắc:
-
-\begin{enumerate}
-  \item Tại mỗi tháng làm mốc, quan sát hành vi của khách trong các tháng \emph{tiếp theo}.
-  \item Nếu có nhãn thực tế từ đội chăm sóc/dữ liệu thì dùng nhãn thực tế, ưu tiên tuyệt đối.
-  \item mNếu chưa có, hệ thống tự gán nhãn bằng quy tắc nghiệp vụ dựa trên đơn hàng thật sau mốc.
-  \item Tháng nào không có nhãn thực tế thì toàn bộ nhãn tháng đó theo quy tắc.
-\end{enumerate}
+Để mô hình học được, cần có ``đáp án'' cho các tháng đã qua: khách nào thực sự đã rời bỏ. Hệ thống gán nhãn hoàn toàn bằng quy tắc nghiệp vụ, theo nguyên tắc: tại mỗi tháng làm mốc, quan sát hành vi thực tế của khách trong các tháng \emph{tiếp theo}, rồi đối chiếu với các quy tắc dưới đây. Các quy tắc được xây dựng có tham khảo ý kiến của đội chăm sóc khách hàng.
 
 \begin{figure}[!ht]
 \centering
@@ -128,7 +121,7 @@ Việc so sánh với mức nền của chính từng khách giúp mô hình ph�
 \caption{Cách chia thời gian khi học: nhìn lịch sử trước mốc, đối chiếu kết quả sau mốc}\label{fig:timeline}
 \end{figure}
 
-\subsection{Bốn quy tắc nghiệp vụ khi chưa có nhãn thực tế}
+\subsection{Bốn quy tắc nghiệp vụ gán nhãn}
 
 {\tablefont
 \begin{longtable}{@{}L{3.3cm}>{\raggedright\arraybackslash}p{7.91cm} L{4.0cm}@{}}
@@ -151,15 +144,15 @@ C2 -- Giảm doanh thu & Doanh thu tương lai giảm hơn 50\% so với mức n
 \vspace{4pt}
 
 Ngoài bốn quy tắc trên, hệ thống tính thêm một điểm rủi ro tổng hợp để kiểm soát tỷ lệ khách được gán nhãn rời bỏ cho sát thực tế:
-tỷ lệ mục tiêu lấy từ tỷ lệ quan sát được ở nhãn thực tế, nếu chưa có thì dùng mức mặc định 15\%; vùng ``chưa chắc chắn'' được phân xử bằng quy tắc nghiệp vụ thay vì loại bỏ. Khách hàng chưa đủ dữ liệu sau mốc thì bị loại để không làm tăng giả tạo tỷ lệ rời bỏ.
+tỷ lệ mục tiêu đặt theo mức mặc định 15\%; vùng ``chưa chắc chắn'' được phân xử bằng quy tắc nghiệp vụ thay vì loại bỏ. Khách hàng chưa đủ dữ liệu sau mốc thì bị loại để không làm tăng giả tạo tỷ lệ rời bỏ.
 
 \section{Mô hình dự báo}
 
 \subsection{Hai lớp mô hình, mỗi lớp một vai trò}
 
 \begin{itemize}
-  \item \textbf{Mô hình cơ sở:} là mô hình đơn giản và nhanh dùng để thử nhiều độ dài lịch sử khác nhau và chọn ra vùng cấu hình tốt. Mô hình này dễ giải thích, ổn định, giúp phát hiện sớm sai sót trong nhãn hoặc cách chia dữ liệu và không là mô hình dùng trong vận hành.
-  \item \textbf{Mô hình chính:} thuộc nhóm cây quyết định tăng cường, XGBoost là mô hình phổ biến cho dữ liệu dạng bảng; biết xử lý quan hệ phức tạp giữa giảm đơn, doanh thu, khiếu nại, giao muộn và thời gian gắn bó; chịu được dữ liệu thiếu; có cơ chế chống học thuộc lòng và cho phép giải thích lý do.
+  \item Mô hình cơ sở: là mô hình đơn giản và nhanh dùng để thử nhiều độ dài lịch sử khác nhau và chọn ra vùng cấu hình tốt. Mô hình này dễ giải thích, ổn định, giúp phát hiện sớm sai sót trong nhãn hoặc cách chia dữ liệu và không là mô hình dùng trong vận hành.
+  \item Mô hình chính: thuộc nhóm cây quyết định tăng cường, XGBoost là mô hình phổ biến cho dữ liệu dạng bảng; biết xử lý quan hệ phức tạp giữa giảm đơn, doanh thu, khiếu nại, giao muộn và thời gian gắn bó; chịu được dữ liệu thiếu; có cơ chế chống học thuộc lòng và cho phép giải thích lý do.
 \end{itemize}
 
 \begin{hieunhanh}[Mô hình dự báo hoạt động thế nào?]

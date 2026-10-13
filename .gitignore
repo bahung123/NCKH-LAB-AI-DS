@@ -13,3 +13,4 @@
 *.synctex.gz
 main.pdf
 .superpowers/
+*.xdv

@@ -6,7 +6,7 @@
 \section{Kiến trúc tổng thể}
 
 Hệ thống được xây dựng theo kiến trúc nhiều tầng, chạy hoàn toàn trong các container trên máy chủ nội bộ,
-dùng chung cơ sở dữ liệu PostgreSQL của đơn vị. Bộ điều phối công việc \textbf{Apache Airflow} là ``người điều hành lịch'': kích hoạt từng khâu đúng giờ, ghi nhật ký, thử lại khi lỗi.
+dùng chung cơ sở dữ liệu PostgreSQL của đơn vị. Bộ điều phối công việc Apache Airflow là ``người điều hành lịch'': kích hoạt từng khâu đúng giờ, ghi nhật ký, thử lại khi lỗi.
 
 \begin{figure}[!ht]
 \centering
@@ -31,10 +31,9 @@ Dữ liệu được tổ chức thành các ``ngăn'' riêng trong cơ sở d�
 \endfoot
 Dữ liệu nguồn & Đơn hàng theo tháng, tổng hợp khách hàng, thông tin hợp đồng, khiếu nại, danh sách tệp đã nạp.\\
 \rowa Nhật ký nạp dữ liệu & Trạng thái từng lần nạp, kết quả kiểm tra độ mới và đầy đủ.\\
-Nhãn thực tế & Danh sách khách hàng rời bỏ theo tháng do đội chăm sóc/dữ liệu cung cấp.\\
-\rowa Dữ liệu nền dài hạn & Tổng hợp lịch sử từng khách đến từng mốc; cấu hình mô hình tốt nhất; bảng rủi ro kết quả.\\
-Dữ liệu cửa sổ & Các bảng chỉ số hành vi theo từng độ dài lịch sử được thử (3, 4, 5\ldots tháng).\\
-\rowa Giám sát & Nhật ký chạy, độ lệch đặc trưng, độ lệch điểm số.\\
+Dữ liệu nền dài hạn & Tổng hợp lịch sử từng khách đến từng mốc; cấu hình mô hình tốt nhất; bảng rủi ro kết quả.\\
+\rowa Dữ liệu cửa sổ & Các bảng chỉ số hành vi theo từng độ dài lịch sử được thử (3, 4, 5\ldots tháng).\\
+Giám sát & Nhật ký chạy, độ lệch đặc trưng, độ lệch điểm số.\\
 \end{longtable}}
 \vspace{4pt}
 
@@ -64,7 +63,7 @@ Huấn luyện lại  & Theo chu kỳ, thiết kế khi đủ dữ liệu nhất
 \end{longtable}}
 \vspace{4pt}
 
-Việc dự đoán và gửi danh sách được chạy \textbf{hằng ngày}, còn việc huấn luyện lại \textbf{không gắn với lịch cố định}:
+Việc dự đoán và gửi danh sách được chạy hằng ngày, còn việc huấn luyện lại không gắn với lịch cố định:
 chu kỳ sẽ được thiết kế khi đã tích lũy đủ dữ liệu, dự kiến 3 ngày hoặc 1 tuần một lần. Trong thời gian đó, hệ thống tiếp tục dùng mô hình hiện tại để chấm điểm hằng ngày.
 
 \begin{figure}[!ht]
@@ -86,9 +85,9 @@ chu kỳ sẽ được thiết kế khi đã tích lũy đủ dữ liệu, dự 
 Quy tắc cụ thể:
 
 \begin{itemize}
-  \item \textbf{Lần chạy đầu tiên:} chấp nhận mô hình để có sản phẩm sử dụng.
-  \item \textbf{Các lần sau:} chấp nhận khi điểm F1 cải thiện so với mô hình đang dùng, hoặc khi đến chu kỳ buộc làm mới.
-  \item \textbf{Từ chối và giữ mô hình cũ:} khi các rào chắn dữ liệu thất bại hoặc tỷ lệ khách rời bỏ trong nhãn bất thường.
+  \item Lần chạy đầu tiên: chấp nhận mô hình để có sản phẩm sử dụng.
+  \item Các lần sau: chấp nhận khi điểm F1 cải thiện so với mô hình đang dùng, hoặc khi đến chu kỳ buộc làm mới.
+  \item Từ chối và giữ mô hình cũ: khi các rào chắn dữ liệu thất bại hoặc tỷ lệ khách rời bỏ trong nhãn quy tắc bất thường.
 \end{itemize}
 
 Nhờ vậy, ngay cả khi dữ liệu tháng nào đó bị lỗi, danh sách kết quả vẫn được tạo từ mô hình đã được kiểm chứng trước đó, không bị gián đoạn và không bị sai lệch.
@@ -97,7 +96,7 @@ Nhờ vậy, ngay cả khi dữ liệu tháng nào đó bị lỗi, danh sách k
 
 {\tablefont
 \begin{longtable}{@{}L{3.4cm}>{\raggedright\arraybackslash}p{12.23cm}@{}}
-\caption{Các lớp giám sát đang vận hành}\label{tab:giamsat}\\
+\caption{Các lớp giám sát}\label{tab:giamsat}\\
 \toprule
 \hdrrow\hh{Lớp giám sát} & \hh{Giám sát điều gì và để làm gì}\\
 \midrule
@@ -177,8 +176,8 @@ Thêm thư viện hoặc đổi cấu hình đóng gói & Đóng gói lại phi�
 \section{An toàn và bảo mật dữ liệu}
 
 \begin{itemize}
-  \item \textbf{Mã hóa định danh:} mã khách hàng và mã bưu gửi được mã hóa ánh xạ một-một ngay từ khâu cung cấp dữ liệu; hệ thống làm việc với mã đã mã hóa.
-  \item \textbf{Giới hạn chạy nội bộ:} hệ thống chạy trên hạ tầng của Tổng công ty, dùng cơ sở dữ liệu nội bộ; thông tin kết nối được quản lý bằng tệp cấu hình môi trường, không nằm trong mã chương trình.
-  \item \textbf{Tách biệt cơ sở dữ liệu:} dữ liệu quản trị của Airflow tách khỏi dữ liệu nghiệp vụ.
-  \item \textbf{Truy vết:} mọi lần chạy đều có nhật ký; mô hình và cấu hình được lưu theo phiên bản.
+  \item Mã hóa định danh: mã khách hàng và mã bưu gửi được mã hóa ánh xạ một-một ngay từ khâu cung cấp dữ liệu; hệ thống làm việc với mã đã mã hóa.
+  \item Giới hạn chạy nội bộ: hệ thống chạy trên hạ tầng của Tổng công ty, dùng cơ sở dữ liệu nội bộ; thông tin kết nối được quản lý bằng tệp cấu hình môi trường, không nằm trong mã chương trình.
+  \item Tách biệt cơ sở dữ liệu: dữ liệu quản trị của Airflow tách khỏi dữ liệu nghiệp vụ.
+  \item Truy vết: mọi lần chạy đều có nhật ký; mô hình và cấu hình được lưu theo phiên bản.
 \end{itemize}

@@ -7,22 +7,22 @@
 Sáng kiến cần sự phối hợp của bốn nhóm; vai trò được phân định như sau:
 
 {\tablefont
-\begin{longtable}{@{}L{3.6cm}>{\raggedright\arraybackslash}p{8.81cm} L{2.8cm}@{}}
+\begin{longtable}{@{}L{3.6cm}>{\raggedright\arraybackslash}p{12.03cm}@{}}
 \caption{Vai trò các nhóm tham gia}\label{tab:vaitro}\\
 \toprule
-\hdrrow\hh{Nhóm} & \hh{Trách nhiệm chính} & \hh{Nhân sự}\\
+\hdrrow\hh{Nhóm} & \hh{Trách nhiệm chính}\\
 \midrule
 \endfirsthead
 \toprule
-\hdrrow\hh{Nhóm} & \hh{Trách nhiệm chính} & \hh{Nhân sự}\\
+\hdrrow\hh{Nhóm} & \hh{Trách nhiệm chính}\\
 \midrule
 \endhead
 \bottomrule
 \endfoot
-Data Scientist & Thiết kế chỉ số, quy tắc nhãn, huấn luyện, đánh giá mô hình; theo dõi chất lượng kết quả; giải thích cho nghiệp vụ. & \phc{số người}\\
-\rowa Data Enineer & Cung cấp dữ liệu nguồn và nhãn thực tế theo lịch; bảo đảm đúng cấu trúc, mã hóa định danh; báo trước khi thay đổi cột/định dạng. & \phc{số người}\\
-Chăm sóc khách hàng & Sử dụng danh sách; liên hệ khách hàng; ghi nhận kết quả và nguyên nhân thực tế; xác nhận nhãn. & \phc{số người}\\
-\rowa Vận hành hạ tầng & Quản lý máy chủ, cơ sở dữ liệu, container, sao lưu, phân quyền truy cập. & \phc{số người}\\
+Data Scientist & Thiết kế chỉ số, quy tắc gán nhãn, huấn luyện, đánh giá mô hình; theo dõi chất lượng kết quả; giải thích cho nghiệp vụ.\\
+\rowa Data Engineer & Cung cấp dữ liệu nguồn theo lịch; bảo đảm đúng cấu trúc, mã hóa định danh; báo trước khi thay đổi cột/định dạng.\\
+Chăm sóc khách hàng & Sử dụng danh sách; liên hệ khách hàng; ghi nhận kết quả và nguyên nhân thực tế; góp ý cho quy tắc gán nhãn.\\
+\rowa Vận hành hạ tầng & Quản lý máy chủ, cơ sở dữ liệu, container, sao lưu, phân quyền truy cập.\\
 \end{longtable}}
 \vspace{4pt}
 
@@ -63,23 +63,23 @@ Tiến độ được trình bày theo giai đoạn. Các giai đoạn đã xây
 \end{figure}
 
 {\tablefont
-\begin{longtable}{@{}L{1.0cm}L{3.2cm}>{\raggedright\arraybackslash}p{5.56cm}L{2.4cm}L{2.2cm}@{}}
+\begin{longtable}{@{}L{1.0cm}L{3.2cm}>{\raggedright\arraybackslash}p{8.0cm}L{2.4cm}@{}}
 \caption{Nội dung, sản phẩm và trạng thái từng giai đoạn}\label{tab:tiendo}\\
 \toprule
-\hdrrow\hh{GĐ} & \hh{Tên} & \hh{Sản phẩm chính} & \hh{Trạng thái} & \hh{Thời gian}\\
+\hdrrow\hh{GĐ} & \hh{Tên} & \hh{Sản phẩm chính} & \hh{Trạng thái}\\
 \midrule
 \endfirsthead
 \toprule
-\hdrrow\hh{GĐ} & \hh{Tên} & \hh{Sản phẩm chính} & \hh{Trạng thái} & \hh{Thời gian}\\
+\hdrrow\hh{GĐ} & \hh{Tên} & \hh{Sản phẩm chính} & \hh{Trạng thái}\\
 \midrule
 \endhead
 \bottomrule
 \endfoot
-1 & Nền dữ liệu & Quy trình nạp tệp đơn hàng, tổng hợp, hợp đồng, khiếu nại, nhãn thực tế; chuẩn hóa cấu trúc; kiểm tra độ mới và đầy đủ. & Đã xây dựng & \phc{~}\\
-\rowa 2 & Chỉ số, nhãn, mô hình & Bảng nền dài hạn; bảng chỉ số cửa sổ; bộ nhãn thống nhất; lọc điều kiện; mô hình cơ sở và mô hình chính; tinh chỉnh; đánh giá theo thời gian. & Đã xây dựng & \phc{~}\\
-3 & Tự động hóa và giám sát & Sáu luồng công việc Airflow; xét duyệt mô hình; chấm điểm và xuất danh sách; lý do rủi ro; giám sát độ lệch; dọn dẹp định kỳ. & Đã xây dựng & \phc{~}\\
-\rowa 4 & Vận hành và thử nghiệm đối chứng & Đưa danh sách vào quy trình chăm sóc; đo mức nền; chạy thử nghiệm đối chứng; báo cáo hiệu quả. & Đề xuất & \phc{~}\\
-5 & Nâng cấp phiên bản tiếp theo & Quản lý vòng đời mô hình; giám sát trực quan; kiểm tra lại trong quá khứ; các kỹ thuật bổ sung. & Đề xuất & \phc{~}\\
+1 & Nền dữ liệu & Quy trình nạp tệp đơn hàng, tổng hợp, hợp đồng, khiếu nại; chuẩn hóa cấu trúc; kiểm tra độ mới và đầy đủ. & Đã xây dựng\\
+\rowa 2 & Chỉ số, nhãn, mô hình & Bảng nền dài hạn; bảng chỉ số cửa sổ; bộ nhãn theo quy tắc nghiệp vụ; lọc điều kiện; mô hình cơ sở và mô hình chính; tinh chỉnh; đánh giá theo thời gian. & Đã xây dựng\\
+3 & Tự động hóa và giám sát & Sáu luồng công việc Airflow; xét duyệt mô hình; chấm điểm và xuất danh sách; lý do rủi ro; giám sát độ lệch; dọn dẹp định kỳ. & Đã xây dựng\\
+\rowa 4 & Vận hành và thử nghiệm đối chứng & Đưa danh sách vào quy trình chăm sóc; đo mức nền; chạy thử nghiệm đối chứng; báo cáo hiệu quả. & Đề xuất\\
+5 & Nâng cấp phiên bản tiếp theo & Quản lý vòng đời mô hình; giám sát trực quan; kiểm tra lại trong quá khứ; các kỹ thuật bổ sung. & Đề xuất\\
 \end{longtable}}
 \vspace{4pt}
 

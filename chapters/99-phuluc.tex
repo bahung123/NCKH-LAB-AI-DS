@@ -17,8 +17,7 @@ Bảng giúp người đọc không chuyên đối chiếu các thuật ngữ tr
 \rowa Mô hình dự báo & Chương trình tự học từ dữ liệu quá khứ để ước lượng khả năng một khách hàng sẽ rời bỏ.\\
 Chỉ số hành vi & Con số tóm tắt cách khách hàng sử dụng dịch vụ, ví dụ số đơn tháng này so với trung bình.\\
 \rowa Nhãn & ``Đáp án đúng'' cho các tháng đã qua: khách này có rời bỏ hay không.\\
-Nhãn thực tế & Nhãn do đội chăm sóc/dữ liệu xác nhận; độ tin cậy cao nhưng số lượng ít.\\
-\rowa Nhãn theo quy tắc & Nhãn do hệ thống tự gán theo quy tắc nghiệp vụ dựa trên đơn hàng thật sau mốc dự báo.\\
+Nhãn theo quy tắc & Nhãn do hệ thống tự gán theo quy tắc nghiệp vụ dựa trên đơn hàng thật sau mốc dự báo.\\
 Mốc dự báo & Tháng mà từ đó hệ thống nhìn lịch sử và dự báo các tháng sau.\\
 \rowa Cửa sổ quan sát & Số tháng lịch sử gần nhất mà hệ thống nhìn vào; tối thiểu 3 tháng.\\
 Chân trời dự báo & Khoảng thời gian dự báo về phía trước; hiện là hai tháng.\\
@@ -64,50 +63,3 @@ Chất lượng đơn hàng & Điểm chất lượng đơn hàng & 0,35\\
 \vspace{4pt}
 
 Tài liệu nghiệp vụ còn ghi nhận các mã khiếu nại, ví dụ: 114 hỗ trợ thu gom, 115 hỗ trợ phát, 116 khiếu nại, 134 hiệu chỉnh giao dịch, 194 yêu cầu chuyển hoàn, 554 gian lận cước, 595 phản ánh bưu gửi sai. Khi cần giải thích sâu hơn, các mã này có thể được quy đổi thành nhóm nguyên nhân nghiệp vụ thay vì chỉ đếm số lượng.
-
-\section{Cấu hình mô hình chính và vùng tinh chỉnh}\label{app:thamso}
-
-{\tablefont
-\begin{longtable}{@{}L{4.4cm}C{2.4cm}>{\raggedright\arraybackslash}p{8.41cm}@{}}
-\caption{Cấu hình mặc định của mô hình chính và vai trò}\label{tab:thamso}\\
-\toprule
-\hdrrow\hh{Tham số} & \hh{Mặc định} & \hh{Vai trò}\\
-\midrule
-\endfirsthead
-\toprule
-\hdrrow\hh{Tham số} & \hh{Mặc định} & \hh{Vai trò (nói đơn giản)}\\
-\midrule
-\endhead
-\bottomrule
-\endfoot
-Số cây tối đa & 5.000 & Mô hình gồm nhiều ``cây quyết định'' xếp chồng; dừng sớm nếu không còn cải thiện.\\
-\rowa Tốc độ học & 0,03 & Học chậm, từng bước nhỏ để ổn định.\\
-Độ sâu tối đa của cây & 6 & Giới hạn độ phức tạp.\\
-\rowa Tỷ lệ lấy mẫu dòng/cột & 0,8 / 0,8 & Mỗi cây chỉ nhìn một phần dữ liệu, giảm học thuộc lòng.\\
-Dừng sớm & 200 vòng & Dừng nếu 200 vòng liền không cải thiện.\\
-\rowa Xử lý mất cân bằng & Tự động, trần 20 & Tăng trọng số cho nhóm rời bỏ vì nhóm này hiếm.\\
-Hạt giống ngẫu nhiên & 42 & Để kết quả lặp lại được.\\
-\end{longtable}}
-\vspace{4pt}
-
-{\tablefont
-\begin{longtable}{@{}L{6.2cm}>{\raggedright\arraybackslash}p{9.43cm}@{}}
-\caption{Cấu hình tinh chỉnh khi huấn luyện lại}\label{tab:tuning}\\
-\toprule
-\hdrrow\hh{Thiết lập} & \hh{Giá trị}\\
-\midrule
-\endfirsthead
-\toprule
-\hdrrow\hh{Thiết lập} & \hh{Giá trị}\\
-\midrule
-\endhead
-\bottomrule
-\endfoot
-Số vòng kiểm tra theo thời gian & 6\\
-\rowa Số vòng tối thiểu dùng để tinh chỉnh & 5\\
-Giữ vòng gần nhất làm bài thi cuối kỳ & Bật\\
-\rowa Số lần thử ngẫu nhiên & 20\\
-Số lần thử tối ưu hóa thông minh & 50\\
-\rowa Số cấu hình ứng viên đưa vào tinh chỉnh & 1\\
-Chân trời dự báo / tỷ lệ cắt danh sách & 2 tháng / 5\% \\
-\end{longtable}}
