@@ -1,0 +1,113 @@
+% 99-phuluc.tex — Phụ lục: Tài liệu bổ trợ
+
+\chapter{Tài liệu bổ trợ}\label{ch:phuluc}
+\section{Bảng thuật ngữ}\label{app:thuatngu}
+
+Bảng giúp người đọc không chuyên đối chiếu các thuật ngữ trong báo cáo và trong tài liệu kỹ thuật bàn giao.
+
+\begin{longtable}{@{}>{\bfseries}L{3.7cm}L{11.0cm}@{}}
+\caption{Bảng thuật ngữ}\label{tab:thuatngu}\\
+\toprule
+\hdrrow\hh{Thuật ngữ} & \hh{Giải thích bằng ngôn ngữ phổ thông}\\
+\midrule\endfirsthead
+\toprule
+\hdrrow\hh{Thuật ngữ} & \hh{Giải thích bằng ngôn ngữ phổ thông}\\
+\midrule\endhead
+\bottomrule\endfoot
+\rowa Mô hình dự báo & Chương trình tự học từ dữ liệu quá khứ để ước lượng khả năng một khách hàng sẽ rời bỏ.\\
+Chỉ số hành vi & Con số tóm tắt cách khách hàng sử dụng dịch vụ, ví dụ số đơn tháng này so với trung bình.\\
+\rowa Nhãn & ``Đáp án đúng'' cho các tháng đã qua: khách này có rời bỏ hay không.\\
+Nhãn thực tế & Nhãn do đội chăm sóc/dữ liệu xác nhận; độ tin cậy cao nhưng số lượng ít.\\
+\rowa Nhãn theo quy tắc & Nhãn do hệ thống tự gán theo quy tắc nghiệp vụ dựa trên đơn hàng thật sau mốc dự báo.\\
+Mốc dự báo & Tháng mà từ đó hệ thống nhìn lịch sử và dự báo các tháng sau.\\
+\rowa Cửa sổ quan sát & Số tháng lịch sử gần nhất mà hệ thống nhìn vào; tối thiểu 3 tháng.\\
+Chân trời dự báo & Khoảng thời gian dự báo về phía trước; hiện là hai tháng.\\
+\rowa Khách đủ điều kiện & Khách không phải loại dùng một lần và có đủ lịch sử hoạt động để dự báo đáng tin.\\
+Xác suất rời bỏ & Khả năng theo \% mô hình ước lượng một khách cụ thể sẽ rời bỏ.\\
+\rowa Thứ hạng rủi ro & Vị trí tương đối của khách trong danh sách; hạng 95 trở lên là 5\% rủi ro cao nhất.\\
+F1 & Điểm cân bằng giữa độ chính xác cảnh báo và độ bao phủ.\\
+\rowa Độ chính xác cảnh báo & Trong số khách bị cảnh báo, tỷ lệ thật sự rời bỏ.\\
+Độ bao phủ & Trong số khách thật sự rời bỏ, tỷ lệ được hệ thống bắt được.\\
+\rowa PR, ROC & Hai thước đo xem hệ thống xếp khách rủi ro cao lên trên khách rủi ro thấp tốt đến đâu.\\
+Bài thi kiểm tra cuối cùng & Tháng gần nhất được giữ riêng, không dùng khi học hoặc tinh chỉnh, chỉ dùng để chấm kết quả cuối.\\
+\rowa Chia theo thời gian & Học từ tháng cũ, kiểm tra trên tháng mới hơn, lặp lại nhiều vòng.\\
+Rò rỉ dữ liệu & Mô hình vô tình ``biết trước'' thông tin tương lai nên kết quả thử nghiệm đẹp giả tạo.\\
+\rowa Học thuộc lòng & Mô hình nhớ dữ liệu quá khứ thay vì rút ra quy luật, nên dự báo kém trên dữ liệu mới.\\
+SHAP & Kỹ thuật cho biết mỗi chỉ số đóng góp bao nhiêu vào điểm rủi ro của từng khách.\\
+\rowa PSI, KS & Hai phép đo mức độ ``lệch'' của dữ liệu hiện tại so với dữ liệu lúc mô hình học.\\
+Airflow & Phần mềm điều phối công việc theo lịch, ghi nhật ký, thử lại khi lỗi.\\
+\end{longtable}
+
+\section{Điểm hài lòng và điểm chất lượng}\label{app:hailong}
+
+Điểm hài lòng là chỉ số tổng hợp có trọng số do nghiệp vụ xây dựng. Hệ thống đưa cả các thành phần riêng và điểm tổng hợp vào mô hình.
+
+{\tablefont
+\begin{longtable}{@{}L{4.2cm}>{\raggedright\arraybackslash}p{8.61cm}C{2.4cm}@{}}
+\caption{Các thành phần của điểm hài lòng}\label{tab:hailong}\\
+\toprule
+\hdrrow\hh{Thành phần} & \hh{Cách tính theo nghiệp vụ} & \hh{Trọng số tham khảo}\\
+\midrule
+\endfirsthead
+\toprule
+\hdrrow\hh{Thành phần} & \hh{Cách tính theo nghiệp vụ} & \hh{Trọng số tham khảo}\\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+Tỷ lệ đơn thành công & (số đơn $-$ số đơn hoàn) / số đơn, quy về thang 10 & 0,10\\
+\rowa Tỷ lệ đơn đúng hạn & (số đơn $-$ số đơn trễ) / số đơn, quy về thang 10 & 0,25\\
+Chất lượng đơn hàng & Điểm chất lượng đơn hàng & 0,35\\
+\rowa Độ ổn định & Điểm giảm dần khi mức độ dao động tăng, quy về thang 10 & 0,05\\
+Điểm thưởng/phạt & Phạt khi có khiếu nại, đơn trễ, đơn không hoàn thành; thưởng khi sản lượng cao, ít khiếu nại, không có đơn hoàn, doanh thu cao, điểm đơn hàng cao & 0,25\\
+\end{longtable}}
+\vspace{4pt}
+
+Tài liệu nghiệp vụ còn ghi nhận các mã khiếu nại, ví dụ: 114 hỗ trợ thu gom, 115 hỗ trợ phát, 116 khiếu nại, 134 hiệu chỉnh giao dịch, 194 yêu cầu chuyển hoàn, 554 gian lận cước, 595 phản ánh bưu gửi sai. Khi cần giải thích sâu hơn, các mã này có thể được quy đổi thành nhóm nguyên nhân nghiệp vụ thay vì chỉ đếm số lượng.
+
+\section{Cấu hình mô hình chính và vùng tinh chỉnh}\label{app:thamso}
+
+{\tablefont
+\begin{longtable}{@{}L{4.4cm}C{2.4cm}>{\raggedright\arraybackslash}p{8.41cm}@{}}
+\caption{Cấu hình mặc định của mô hình chính và vai trò}\label{tab:thamso}\\
+\toprule
+\hdrrow\hh{Tham số} & \hh{Mặc định} & \hh{Vai trò}\\
+\midrule
+\endfirsthead
+\toprule
+\hdrrow\hh{Tham số} & \hh{Mặc định} & \hh{Vai trò (nói đơn giản)}\\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+Số cây tối đa & 5.000 & Mô hình gồm nhiều ``cây quyết định'' xếp chồng; dừng sớm nếu không còn cải thiện.\\
+\rowa Tốc độ học & 0,03 & Học chậm, từng bước nhỏ để ổn định.\\
+Độ sâu tối đa của cây & 6 & Giới hạn độ phức tạp.\\
+\rowa Tỷ lệ lấy mẫu dòng/cột & 0,8 / 0,8 & Mỗi cây chỉ nhìn một phần dữ liệu, giảm học thuộc lòng.\\
+Dừng sớm & 200 vòng & Dừng nếu 200 vòng liền không cải thiện.\\
+\rowa Xử lý mất cân bằng & Tự động, trần 20 & Tăng trọng số cho nhóm rời bỏ vì nhóm này hiếm.\\
+Hạt giống ngẫu nhiên & 42 & Để kết quả lặp lại được.\\
+\end{longtable}}
+\vspace{4pt}
+
+{\tablefont
+\begin{longtable}{@{}L{6.2cm}>{\raggedright\arraybackslash}p{9.43cm}@{}}
+\caption{Cấu hình tinh chỉnh khi huấn luyện lại}\label{tab:tuning}\\
+\toprule
+\hdrrow\hh{Thiết lập} & \hh{Giá trị}\\
+\midrule
+\endfirsthead
+\toprule
+\hdrrow\hh{Thiết lập} & \hh{Giá trị}\\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+Số vòng kiểm tra theo thời gian & 6\\
+\rowa Số vòng tối thiểu dùng để tinh chỉnh & 5\\
+Giữ vòng gần nhất làm bài thi cuối kỳ & Bật\\
+\rowa Số lần thử ngẫu nhiên & 20\\
+Số lần thử tối ưu hóa thông minh & 50\\
+\rowa Số cấu hình ứng viên đưa vào tinh chỉnh & 1\\
+Chân trời dự báo / tỷ lệ cắt danh sách & 2 tháng / 5\% \\
+\end{longtable}}

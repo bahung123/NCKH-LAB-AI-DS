@@ -1,0 +1,183 @@
+% 01-boi-canh.tex — Chương 1: Giới thiệu đề tài và bối cảnh
+
+\chapter{Giới thiệu đề tài và bối cảnh}\label{ch:boicanh}
+
+\section{Dùng dữ liệu để hiểu hành vi khách hàng}
+
+Khách hàng không nói với doanh nghiệp mọi điều họ nghĩ, nhưng họ để lại dấu vết trong dữ liệu: gửi bao nhiêu đơn, vào những ngày nào, đơn giao có đúng hẹn không, có khiếu nại không, doanh thu mỗi tháng tăng hay giảm. Khoa học dữ liệu là cách làm khai thác các dấu vết đó một cách có hệ thống để hiểu khách hàng đang làm gì, vì sao, và nhiều khả năng sẽ làm gì tiếp theo.
+
+Ở góc nhìn quản lý, việc này đi qua bốn mức, mỗi mức trả lời một câu hỏi và cần nhiều dữ liệu, kỹ thuật hơn mức trước:
+
+{\tablefont
+\begin{longtable}{@{}>{\bfseries}L{2.9cm}L{4.6cm}>{\raggedright\arraybackslash}p{7.73cm}@{}}
+\caption{Bốn mức khai thác dữ liệu về khách hàng}\label{tab:bonmuc}\\
+\toprule
+\hdrrow\hh{Mức} & \hh{Câu hỏi} & \hh{Ví dụ trong bối cảnh Bưu điện}\\
+\midrule
+\endfirsthead
+\toprule
+\hdrrow\hh{Mức} & \hh{Câu hỏi} & \hh{Ví dụ trong bối cảnh Bưu điện}\\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+Mô tả & Điều gì đã xảy ra? & Tháng trước khách này gửi bao nhiêu đơn, doanh thu bao nhiêu.\\
+\rowa Chẩn đoán & Vì sao xảy ra? & Số đơn giảm cùng lúc với tỷ lệ giao muộn và khiếu nại tăng.\\
+Dự báo & Điều gì có thể xảy ra tiếp theo? & Khách này có nguy cơ giảm hoặc ngừng sử dụng trong một đến hai tháng tới.\\
+\rowa Hành động & Nên làm gì? & Liên hệ khách trước, xử lý khiếu nại còn tồn, rà soát chất lượng khai thác tuyến.\\
+\end{longtable}}
+\vspace{4pt}
+
+Nhiều đơn vị mới dừng ở hai mức đầu: báo cáo cho biết \emph{đã} xảy ra gì. Đề tài này đi tiếp sang mức dự báo và hỗ trợ mức hành động.
+
+\section{Dự đoán hành vi khách hàng giúp được gì}
+
+Dự đoán hành vi nghĩa là dùng lịch sử sử dụng của nhiều khách hàng trong quá khứ để ước lượng, cho từng khách hàng hiện tại,
+khả năng họ sẽ hành động theo một cách nào đó trong tương lai gần. Kết quả là một con số xác suất kèm lý do, không phải lời khẳng định chắc chắn.
+
+Cách làm này áp dụng được cho nhiều khía cạnh hành vi khác nhau của khách hàng, và mỗi khía cạnh là một bài toán riêng.
+Đề tài sẽ triển khai dần các bài toán đó; báo cáo này đi sâu vào bài toán đầu tiên là khách hàng rời bỏ dịch vụ.
+
+\section{Một bài toán dự báo hành vi được xây dựng như thế nào}
+
+Dù bài toán cụ thể là gì, các bài toán dự báo hành vi đều đi qua cùng một chuỗi công việc:
+
+{\tablefont
+\begin{longtable}{@{}C{0.8cm}L{4.2cm}>{\raggedright\arraybackslash}p{10.21cm}@{}}
+\caption{Chuỗi công việc chung của một bài toán dự báo hành vi}\label{tab:chuoi}\\
+\toprule
+\hdrrow\hh{TT} & \hh{Bước} & \hh{Nội dung}\\
+\midrule
+\endfirsthead
+\toprule
+\hdrrow\hh{TT} & \hh{Bước} & \hh{Nội dung}\\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+1 & Đặt câu hỏi & Xác định rõ cần dự đoán hành vi nào, cho đối tượng nào, trong khoảng thời gian bao lâu.\\
+\rowa 2 & Chuẩn bị dữ liệu & Gom dữ liệu từ các nguồn, kiểm tra chất lượng, bảo vệ thông tin khách hàng.\\
+3 & Tạo chỉ số hành vi & Tóm tắt lịch sử thành các con số dễ so sánh, ví dụ số đơn tháng này so với mức trung bình của chính khách hàng đó.\\
+\rowa 4 & Huấn luyện mô hình & Cho mô hình học từ các trường hợp đã biết kết quả để rút ra quy luật.\\
+5 & Kiểm tra theo thời gian & Giả lập đúng như đang vận hành tại các thời điểm trong quá khứ, để biết mô hình dự báo đúng đến đâu.\\
+\rowa 6 & Đưa vào vận hành & Chạy tự động theo lịch, xuất kết quả cho đơn vị sử dụng, kèm lý do để con người kiểm tra.\\
+7 & Đo hiệu quả & So sánh nhóm áp dụng với nhóm không áp dụng để biết giá trị thật mang lại.\\
+\end{longtable}}
+\vspace{4pt}
+
+Chuỗi này lặp lại cho từng bài toán, nhưng nhiều khâu (bước 2, 4, 5, 6) có thể dùng chung. Đây là lý do đề tài được tổ chức theo hướng
+làm kỹ bài toán đầu tiên rồi mở rộng.
+
+\section{Nguyên tắc khi dùng dự đoán hành vi}
+
+\begin{itemize}
+  \item \textbf{Dự đoán là khả năng, không phải sự thật.} Mô hình có thể cảnh báo nhầm hoặc bỏ sót; kết quả dùng để sắp thứ tự ưu tiên, không thay thế đánh giá của người chăm sóc.
+  \item \textbf{Chỉ dùng thông tin có trước thời điểm dự báo.} Nếu để lẫn thông tin của tương lai, kết quả thử nghiệm sẽ đẹp giả tạo.
+  \item \textbf{Giải thích được.} Mỗi dự đoán đi kèm lý do để đội chăm sóc biết nên hành động thế nào.
+  \item \textbf{Bảo vệ dữ liệu khách hàng.} Mã khách hàng được mã hóa; dữ liệu chỉ dùng cho mục đích chăm sóc và giữ chân khách hàng.
+  \item \textbf{Đo bằng hiệu quả thực tế.} Một mô hình tốt trên giấy chưa chắc mang lại giá trị; cần thử nghiệm đối chứng khi vận hành.
+\end{itemize}
+
+\section{Bối cảnh hoạt động}
+
+Bưu điện Việt Nam cung cấp dịch vụ bưu chính, chuyển phát cho một số lượng lớn khách hàng, trong đó có nhóm khách hàng
+doanh nghiệp, cửa hàng, đơn vị thương mại điện tử gửi hàng thường xuyên theo hợp đồng. Đây là nhóm khách hàng mang lại sản lượng
+và doanh thu ổn định, đồng thời cũng là nhóm có nhiều lựa chọn thay thế trên thị trường chuyển phát. Tài liệu nghiệp vụ của dự án
+ghi nhận một số đơn vị cung cấp khác mà khách hàng đã chuyển sang sử dụng, như Giao Hàng Nhanh, Viettel Post, Best.
+
+Với nhóm khách hàng này, việc \emph{giữ được một khách hàng đang sử dụng} thường có ý nghĩa kinh doanh lớn hơn việc tìm thêm
+một khách hàng mới tương đương. Điều kiện để giữ chân là phải nhận biết \textbf{sớm} khi khách hàng bắt đầu thay đổi hành vi,
+trong lúc vẫn còn thời gian để chăm sóc, giải quyết vướng mắc và điều chỉnh chính sách phù hợp.
+
+\section{Đề tài và bài toán đầu tiên}
+
+Đề tài \textbf{``Triển khai các mô hình dự báo, dự đoán về hành vi của khách hàng phục vụ công tác cải thiện chất lượng dịch vụ và giữ chân người dùng''} không chỉ có một bài toán. Mục đích chung là dùng dữ liệu vận hành sẵn có
+để \emph{dự báo trước hành vi của khách hàng}, từ đó điều chỉnh dịch vụ và chăm sóc đúng đối tượng, đúng thời điểm.
+Mỗi khía cạnh hành vi cần dự báo là một bài toán thành phần riêng, có mục tiêu, dữ liệu và cách đo hiệu quả riêng.
+
+Bài toán rời bỏ được chọn làm bài toán đầu tiên vì tác động trực tiếp đến doanh thu, dữ liệu đã có đủ để triển khai,
+và kết quả có thể được đội chăm sóc sử dụng ngay. Những gì xây dựng cho bài toán này là nền để các bài toán sau tái sử dụng. Từ đây trở đi, báo cáo trình bày chi tiết bài toán rời bỏ.
+
+\section{``Khách hàng rời bỏ'' được hiểu như thế nào?}
+
+Trong báo cáo này, khách hàng rời bỏ không chỉ là khách hàng ngừng hẳn việc sử dụng dịch vụ. Theo cách tiếp cận của
+dự án, khách hàng được coi là có nguy cơ rời bỏ khi rơi vào một trong các tình huống sau trong khoảng một đến hai tháng tới:
+
+\begin{enumerate}
+  \item \textbf{Ngừng hẳn:} không còn phát sinh đơn hàng hoặc doanh thu.
+  \item \textbf{Giảm mạnh về số đơn:} số đơn giảm hơn một nửa so với mức trung bình các tháng trước đó.
+  \item \textbf{Giảm mạnh về doanh thu:} doanh thu giảm hơn một nửa so với mức nền của chính khách hàng đó.
+  \item \textbf{Xu hướng đi xuống rõ rệt:} doanh thu giảm dần liên tục và mức hiện tại thấp hơn rõ so với mức nền.
+\end{enumerate}
+
+\section{Nguyên nhân khách hàng rời bỏ được ghi nhận}
+
+Đội chăm sóc khách hàng và đội dữ liệu đã khảo sát một nhóm khách hàng đã rời bỏ thực tế và ghi lại trạng thái khách hàng rời bỏ. Các nguyên nhân được nêu trong tài liệu nghiệp vụ gồm:
+
+{\tablefont
+\begin{longtable}{@{}>{\bfseries}L{4.4cm}>{\raggedright\arraybackslash}p{11.23cm}@{}}
+\caption{Nhóm nguyên nhân khách hàng rời bỏ do nghiệp vụ ghi nhận}\label{tab:nguyennhan}\\
+\toprule
+\hdrrow\hh{Nhóm nguyên nhân} & \hh{Cách hệ thống ``nhìn thấy'' dấu hiệu qua dữ liệu}\\
+\midrule
+\endfirsthead
+\toprule
+\hdrrow\hh{Nhóm nguyên nhân} & \hh{Cách hệ thống ``nhìn thấy'' dấu hiệu qua dữ liệu}\\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+Giá cước & Doanh thu trên mỗi đơn giảm; khách chuyển bớt sản lượng sang nơi khác.\\
+Giao hàng kéo dài, chất lượng phát & Tỷ lệ đơn giao muộn, số ngày chậm tăng.\\
+An toàn bưu gửi, thất lạc & Tỷ lệ đơn mất, đơn hoàn, đơn không được chấp nhận tăng.\\
+Bồi thường, khiếu nại & Số lượng và loại khiếu nại tăng.\\
+Khâu thu gom, thu hộ COD chậm & Đơn không hoàn thành tăng; điểm hài lòng giảm.\\
+Lộ thông tin khách hàng & Phản ánh được ghi nhận ở lớp nghiệp vụ.\\
+Trải nghiệm ứng dụng My VNPost & Phản ánh được ghi nhận ở lớp nghiệp vụ.\\
+\end{longtable}}
+\vspace{4pt}
+
+Phần lớn các nguyên nhân trên để lại dấu vết trong dữ liệu vận hành trước khi khách hàng giảm hoặc ngừng sử dụng. Đây là cơ sở để dự báo sớm là khả thi.
+
+\begin{luuy}[Về độ phủ của nhãn thực tế]
+Tập khách hàng rời bỏ được khảo sát thực tế hiện có khoảng 1.501 dòng trạng thái rời bỏ. Đây là thông tin có độ tin cậy cao nhưng không bao phủ toàn bộ khách hàng, vì vậy hệ thống kết hợp thêm quy tắc nghiệp vụ để bổ sung.
+\end{luuy}
+
+\section{Dữ liệu hiện có trong Tổng công ty}
+
+Dự án sử dụng các nguồn dữ liệu đã có sẵn, được đội kỹ thuật dữ liệu chuẩn hóa và đưa vào cơ sở dữ liệu tập trung theo tháng:
+
+{\tablefont
+\begin{longtable}{@{}L{3.7cm}>{\raggedright\arraybackslash}p{7.31cm} L{4.2cm}@{}}
+\caption{Các nguồn dữ liệu đầu vào}\label{tab:nguondulieu}\\
+\toprule
+\hdrrow\hh{Nguồn dữ liệu} & \hh{Nội dung phổ thông} & \hh{Dùng để làm gì}\\
+\midrule
+\endfirsthead
+\toprule
+\hdrrow\hh{Nguồn dữ liệu} & \hh{Nội dung phổ thông} & \hh{Dùng để làm gì}\\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+Đơn hàng/bưu gửi theo tháng & Số đơn, trọng lượng, cước, dịch vụ, thời gian gửi/nhận, giao thành công, hoàn, mất, chậm, khiếu nại & Đo hành vi sử dụng thực tế; tạo nhãn tương lai; giải thích lý do\\
+\rowa Tổng hợp khách hàng theo tháng & Số đơn, doanh thu, số ngày chậm, điểm đơn hàng, điểm hài lòng, số loại dịch vụ & Theo dõi diễn biến từng tháng, chất lượng dịch vụ\\
+Thông tin hợp đồng & Loại khách hàng, thời gian gắn bó, dịch vụ hợp đồng, địa bàn quản lý & Phân biệt nhóm khách; so sánh với ``nền'' dài hạn\\
+\rowa Khiếu nại & Loại khiếu nại, thời gian xử lý, mức chậm xử lý & Nhận diện khách hàng bất mãn\\
+Nhãn thực tế & Danh sách khách hàng rời bỏ do đội chăm sóc/dữ liệu cung cấp & ``Đáp án đúng'' để mô hình học và kiểm tra\\
+\end{longtable}}
+\vspace{4pt}
+
+Quy tắc dữ liệu đã được thống nhất với nghiệp vụ: dữ liệu đơn hàng chia nhiều đợt trong tháng, ngày 2 hằng tháng hệ thống quét lại
+hai tháng gần nhất để cập nhật trạng thái; mã khách hàng được mã hóa một-một để bảo vệ thông tin; thời gian chuẩn hóa theo múi
+giờ Việt Nam; trọng lượng chuẩn hóa về ki-lô-gam.
+
+\section{Khoảng trống cần giải quyết}\label{sec:khoangtrong}
+
+Từ các tài liệu dự án, có thể xác định ba khoảng trống mà sáng kiến hướng tới giải quyết:
+
+\begin{enumerate}
+  \item \textbf{Chưa có căn cứ để sắp thứ tự ưu tiên chăm sóc.} Khi có hàng nghìn khách hàng đang hoạt động, nếu không có điểm rủi ro thì khó xác định nên tiếp cận khách nào trước. Nguồn lực chăm sóc có hạn cần được dồn vào nhóm rủi ro cao nhất.
+  \item \textbf{Chưa biết ``vì sao''.} Một danh sách tên khách hàng chưa đủ để hành động. Đội chăm sóc cần biết khách hàng đang gặp vấn đề gì (giảm đơn, giao chậm, khiếu nại, \ldots) để chọn cách tiếp cận đúng: ưu đãi, xử lý khiếu nại hay cải thiện chất lượng khai thác.
+  \item \textbf{Dữ liệu và mô hình cần được cập nhật đều đặn.} Hành vi khách hàng thay đổi theo thời gian; một mô hình chỉ xây một lần sẽ nhanh chóng lạc hậu. Nếu việc cập nhật dựa trên thao tác thủ công thì khó duy trì ổn định và khó kiểm soát chất lượng.
+\end{enumerate}
